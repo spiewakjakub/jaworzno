@@ -1,0 +1,24 @@
+{
+  "jaworznoApp": {
+    "place": {
+      "home": {
+        "title": "Place",
+        "createLabel": "Dodaj Place",
+        "createOrEditLabel": "Dodaj lub edytuj: Place",
+        "notFound": "No Places found"
+      },
+      "created": "Utworzono nowy obiekt typu Place z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Place z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Place z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Place {{ id }}?"
+      },
+      "detail": {
+        "title": "Place"
+      },
+      "date": "Date",
+      "name": "Name",
+      "link": "Link"
+    }
+  }
+}

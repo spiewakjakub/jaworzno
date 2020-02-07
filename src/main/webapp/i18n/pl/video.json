@@ -1,0 +1,23 @@
+{
+  "jaworznoApp": {
+    "video": {
+      "home": {
+        "title": "Video",
+        "createLabel": "Dodaj Video",
+        "createOrEditLabel": "Dodaj lub edytuj: Video",
+        "notFound": "No Videos found"
+      },
+      "created": "Utworzono nowy obiekt typu Video z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Video z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Video z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Video {{ id }}?"
+      },
+      "detail": {
+        "title": "Video"
+      },
+      "title": "Title",
+      "link": "Link"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "jaworznoApp": {
+    "sponsor": {
+      "home": {
+        "title": "Sponsor",
+        "createLabel": "Dodaj Sponsor",
+        "createOrEditLabel": "Dodaj lub edytuj: Sponsor",
+        "notFound": "No Sponsors found"
+      },
+      "created": "Utworzono nowy obiekt typu Sponsor z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Sponsor z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Sponsor z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Sponsor {{ id }}?"
+      },
+      "detail": {
+        "title": "Sponsor"
+      },
+      "logo": "Logo",
+      "name": "Name",
+      "link": "Link"
+    }
+  }
+}

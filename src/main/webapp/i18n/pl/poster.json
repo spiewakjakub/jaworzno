@@ -1,0 +1,23 @@
+{
+  "jaworznoApp": {
+    "poster": {
+      "home": {
+        "title": "Poster",
+        "createLabel": "Dodaj Poster",
+        "createOrEditLabel": "Dodaj lub edytuj: Poster",
+        "notFound": "No Posters found"
+      },
+      "created": "Utworzono nowy obiekt typu Poster z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Poster z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Poster z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Poster {{ id }}?"
+      },
+      "detail": {
+        "title": "Poster"
+      },
+      "data": "Data",
+      "link": "Link"
+    }
+  }
+}

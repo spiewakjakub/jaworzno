@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sponsor">
+            <h2><span jhiTranslate="jaworznoApp.sponsor.detail.title">Sponsor</span> {{ sponsor.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jaworznoApp.sponsor.logo">Logo</span></dt>
+                <dd>
+                    <div *ngIf="sponsor.logo">
+                        <a (click)="openFile(sponsor.logoContentType!, sponsor.logo)" jhiTranslate="entity.action.open">open</a>
+                        {{ sponsor.logoContentType }}, {{ byteSize(sponsor.logo) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jaworznoApp.sponsor.name">Name</span></dt>
+                <dd>
+                    <span>{{ sponsor.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="jaworznoApp.sponsor.link">Link</span></dt>
+                <dd>
+                    <span>{{ sponsor.link }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sponsor', sponsor.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

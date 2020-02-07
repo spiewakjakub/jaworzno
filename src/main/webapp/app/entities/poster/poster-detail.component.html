@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="poster">
+            <h2><span jhiTranslate="jaworznoApp.poster.detail.title">Poster</span> {{ poster.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jaworznoApp.poster.data">Data</span></dt>
+                <dd>
+                    <div *ngIf="poster.data">
+                        <a (click)="openFile(poster.dataContentType!, poster.data)" jhiTranslate="entity.action.open">open</a>
+                        {{ poster.dataContentType }}, {{ byteSize(poster.data) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jaworznoApp.poster.link">Link</span></dt>
+                <dd>
+                    <span>{{ poster.link }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/poster', poster.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+  "jaworznoApp": {
+    "picture": {
+      "home": {
+        "title": "Picture",
+        "createLabel": "Dodaj Picture",
+        "createOrEditLabel": "Dodaj lub edytuj: Picture",
+        "notFound": "No Pictures found"
+      },
+      "created": "Utworzono nowy obiekt typu Picture z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Picture z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Picture z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Picture {{ id }}?"
+      },
+      "detail": {
+        "title": "Picture"
+      },
+      "data": "Data",
+      "album": "Album"
+    }
+  }
+}
