@@ -1,0 +1,42 @@
+entity News {
+	title String,
+	content String,
+    date Instant,
+    description String
+}
+
+entity Place {
+	date Instant,
+    name String,
+    link String
+}
+
+entity Poster {
+	data Blob,
+    link String
+}
+
+entity Video {
+	title String,
+	link String
+}
+
+entity Picture {
+	data Blob    
+}
+
+entity Album {
+	title String
+}
+
+entity Sponsor {
+	logo Blob,
+    name String,
+    link String
+}
+
+relationship OneToMany {
+	Album{picture} to Picture
+}
+
+service all with serviceImpl

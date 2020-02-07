@@ -1,0 +1,11 @@
+version: '2'
+services:
+  jaworzno-postgresql:
+    image: postgres:12.1
+    # volumes:
+    #     - ~/volumes/jhipster/jaworzno/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=jaworzno
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432
