@@ -14,7 +14,7 @@ export class PostersComponent {
     posterService.query().subscribe(response => {
       // eslint-disable-next-line no-console
       console.log(response.body);
-      this.posters = response.body;
+      this.posters = (response.body as []).slice(0, 4);
     });
   }
 }
