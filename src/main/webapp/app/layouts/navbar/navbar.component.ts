@@ -16,8 +16,9 @@ import { ProfileService } from 'app/layouts/profiles/profile.service';
   styleUrls: ['navbar.scss']
 })
 export class NavbarComponent implements OnInit {
+  isMenuCollapsed = true;
+
   inProduction?: boolean;
-  isNavbarCollapsed = true;
   languages = LANGUAGES;
   swaggerEnabled?: boolean;
   version: string;
@@ -46,10 +47,6 @@ export class NavbarComponent implements OnInit {
     this.languageService.changeLanguage(languageKey);
   }
 
-  collapseNavbar(): void {
-    this.isNavbarCollapsed = true;
-  }
-
   isAuthenticated(): boolean {
     return this.accountService.isAuthenticated();
   }
@@ -59,13 +56,8 @@ export class NavbarComponent implements OnInit {
   }
 
   logout(): void {
-    this.collapseNavbar();
     this.loginService.logout();
     this.router.navigate(['']);
-  }
-
-  toggleNavbar(): void {
-    this.isNavbarCollapsed = !this.isNavbarCollapsed;
   }
 
   getImageUrl(): string {
