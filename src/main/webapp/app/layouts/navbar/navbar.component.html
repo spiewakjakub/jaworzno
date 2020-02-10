@@ -1,11 +1,16 @@
-<nav class="navbar navbar-expand-lg mt-2">
+<nav class="navbar navbar-expand-md navbar-light mt-2">
 
-    <div class="collapse navbar-collapse" id="navbarResponsive">
+    <button class="navbar-toggler ml-auto"
+            type="button"
+            (click)="isMenuCollapsed = !isMenuCollapsed">
+        &#9776;
+    </button>
+
+    <div [ngbCollapse]="isMenuCollapsed"
+         class="collapse navbar-collapse">
         <ul class="navbar-nav nav-fill w-100">
-
             <li class="nav-item">
-                <a [routerLinkActiveOptions]="{exact: true}"
-                   class="nav-link"
+                <a class="nav-link"
                    routerLink="/news"
                    routerLinkActive="active">
                     <span jhiTranslate="global.menu.entities.news">Nowości</span>
