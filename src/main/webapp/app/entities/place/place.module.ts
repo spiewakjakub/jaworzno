@@ -11,6 +11,7 @@ import { placeRoute } from './place.route';
 @NgModule({
   imports: [JaworznoSharedModule, RouterModule.forChild(placeRoute)],
   declarations: [PlaceComponent, PlaceDetailComponent, PlaceUpdateComponent, PlaceDeleteDialogComponent],
+  exports: [PlaceComponent],
   entryComponents: [PlaceDeleteDialogComponent]
 })
 export class JaworznoPlaceModule {}
