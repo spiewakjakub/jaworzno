@@ -10,11 +10,18 @@ import { Poster } from 'app/shared/model/poster.model';
 export class PostersComponent {
   posters: Poster[] | null = [];
 
-  constructor(posterService: PosterService) {
-    posterService.query().subscribe(response => {
-      // eslint-disable-next-line no-console
-      console.log(response.body);
-      this.posters = (response.body as []).slice(0, 4);
-    });
+  constructor(private posterService: PosterService) {
+    posterService.query().subscribe(
+      response => {
+        this.posters = (response.body as []).slice(0, 4);
+      },
+      error => {
+        console.error(error);
+      }
+    );
+  }
+
+  onPosterClick(link: string): void {
+    window.open(link, '_blank');
   }
 }
