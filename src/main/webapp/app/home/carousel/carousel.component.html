@@ -1,7 +1,7 @@
 <ngb-carousel class="carousel">
     <ng-template ngbSlide *ngFor="let image of images; index as index">
         <div class="carousel-image-wrapper">
-            <img class="carousel-image" [src]="image" [alt]="image">
+            <img [src]="image" [alt]="image">
         </div>
         <div class="carousel-caption">
             <h3><a class="text-white" [href]="image">Slider label: {{index + 1}}</a></h3>
