@@ -1,0 +1,17 @@
+<div class="base-news">
+    <figure class="news-image-wrapper">
+        <img alt="{{news?.title}}"
+             class="img-fluid w-100"
+             src="data:image/jpg;base64,{{news?.picture}}"/>
+        <figcaption class="news-image-info">
+            <span class="news-line"></span>
+            <span class="news-date">{{news?.date | date}}</span>
+        </figcaption>
+    </figure>
+    <h1 class="news-title">
+        {{news?.title}}
+    </h1>
+    <p class="news-description">
+        {{news?.description}}
+    </p>
+</div>

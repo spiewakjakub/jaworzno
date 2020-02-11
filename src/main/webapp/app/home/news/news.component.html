@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-12 news-header">
+        <div class="d-flex">
+            <h1 jhiTranslate="jaworznoApp.news.home.title">News</h1>
+            <a class="all-news-button ml-auto" href="#" jhiTranslate="jaworznoApp.news.home.viewAll">View all</a>
+        </div>
+
+        <span class="news-line"></span>
+    </div>
+</div>
+
+<div class="row d-flex justify-content-between">
+    <div *ngFor="let news of newsArray" class="col-6 col-md-3">
+        <jhi-single-news
+            (click)="onElementClick(news)"
+            [news]="news"></jhi-single-news>
+    </div>
+</div>
