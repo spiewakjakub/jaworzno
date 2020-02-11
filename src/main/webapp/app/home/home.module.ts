@@ -9,9 +9,20 @@ import { PlacesComponent } from './places/places.component';
 import { PlaceItemComponent } from './places/place-item/place-item.component';
 import { PosterComponent } from './posters/poster/poster.component';
 import { PostersComponent } from './posters/posters.component';
+import { NewsComponent } from './news/news.component';
+import { SingleNewsComponent } from './news/single-news/single-news.component';
 
 @NgModule({
   imports: [JaworznoSharedModule, RouterModule.forChild([HOME_ROUTE])],
-  declarations: [HomeComponent, CarouselComponent, PlacesComponent, PlaceItemComponent, PostersComponent, PosterComponent]
+  declarations: [
+    HomeComponent,
+    CarouselComponent,
+    PlacesComponent,
+    PlaceItemComponent,
+    PostersComponent,
+    PosterComponent,
+    NewsComponent,
+    SingleNewsComponent
+  ]
 })
 export class JaworznoHomeModule {}

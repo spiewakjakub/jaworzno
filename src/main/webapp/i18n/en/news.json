@@ -5,7 +5,8 @@
         "title": "News",
         "createLabel": "Create a new News",
         "createOrEditLabel": "Create or edit a News",
-        "notFound": "No News found"
+        "notFound": "No News found",
+        "viewAll": "View all"
       },
       "created": "A new News is created with identifier {{ param }}",
       "updated": "A News is updated with identifier {{ param }}",

@@ -8,7 +8,7 @@ import { Poster } from 'app/shared/model/poster.model';
   styleUrls: ['./posters.component.scss']
 })
 export class PostersComponent {
-  posters: Poster[] | null = [];
+  posters: Poster[] = [];
 
   constructor(private posterService: PosterService) {
     posterService.query().subscribe(
