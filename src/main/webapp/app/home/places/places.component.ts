@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Place } from 'app/shared/model/place.model';
-import { now } from 'moment';
 
 @Component({
   selector: 'jhi-places',
