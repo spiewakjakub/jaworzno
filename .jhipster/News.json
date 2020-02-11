@@ -6,27 +6,37 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "content",
-            "fieldType": "String"
+          "fieldName": "content",
+          "fieldType": "String"
         },
-        {
-            "fieldName": "date",
-            "fieldType": "Instant"
-        },
-        {
-            "fieldName": "description",
-            "fieldType": "String"
-        }
+      {
+        "fieldName": "date",
+        "fieldType": "Instant"
+      },
+      {
+        "fieldName": "description",
+        "fieldType": "String"
+      },
+      {
+        "fieldName": "picture",
+        "fieldType": "byte[]",
+        "fieldTypeBlobContent": "image",
+        "fieldValidateRules": [
+          "required"
+        ]
+      }
     ],
-    "relationships": [],
-    "changelogDate": "20200207171600",
-    "entityTableName": "news",
-    "dto": "no",
-    "pagination": "no",
-    "service": "serviceImpl",
-    "jpaMetamodelFiltering": false,
-    "fluentMethods": true,
-    "readOnly": false,
-    "clientRootFolder": "",
-    "applications": "*"
+  "relationships": [],
+  "changelogDate": "20200207171600",
+  "entityTableName": "news",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "clientRootFolder": "",
+  "applications": "*",
+  "searchEngine": false,
+  "databaseType": "sql"
 }

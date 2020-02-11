@@ -24,6 +24,16 @@
                 <dd>
                     <span>{{ news.description }}</span>
                 </dd>
+                <dt><span jhiTranslate="jaworznoApp.news.picture">Picture</span></dt>
+                <dd>
+                    <div *ngIf="news.picture">
+                        <a (click)="openFile(news.pictureContentType!, news.picture)">
+                            <img [src]="'data:' + news.pictureContentType + ';base64,' + news.picture" alt="news image"
+                                 style="max-width: 100%;"/>
+                        </a>
+                        {{ news.pictureContentType }}, {{ byteSize(news.picture) }}
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"
