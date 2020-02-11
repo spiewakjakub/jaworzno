@@ -1,25 +1,25 @@
-$primary: #3e8acc;
+@import 'src/main/webapp/content/scss/global';
+
 $radius: 8px;
 
-.item-container {
-  margin: 16px 0;
+@mixin item-date-square-sizing {
+  width: 48px;
+  height: 24px;
 }
 
-.item-date {
-  //background: $primary;
-  width: 100%;
+.item-container {
+  margin: 8px 0;
 }
 
 .item-date-day {
   border-top-right-radius: $radius;
   border-top-left-radius: $radius;
   background: lighten($primary, 32);
-  width: 100%;
+  @include item-date-square-sizing;
 }
 
 .item-date-month {
   border-bottom-right-radius: $radius;
   border-bottom-left-radius: $radius;
-  background: $primary;
-  width: 100%;
+  @include item-date-square-sizing;
 }

@@ -1,16 +1,14 @@
 <div class="row item-container">
-    <div class="col-3 item-date align-items-center">
+    <div class="item-date">
         <div class="item-date-day text-center">
             {{data.date.date()}}
         </div>
-        <div class="item-date-month text-center">
+        <div class="item-date-month bg-primary text-center">
             {{data.date.month() + 1}}
         </div>
     </div>
-    <div class="col-9 d-flex align-items-center">
-        <p>
-            {{data.name}}
-        </p>
-    </div>
+    <span class="ml-2 d-flex align-items-center">
+        {{data.name}}
+    </span>
 </div>
 <hr class="divider"/>
