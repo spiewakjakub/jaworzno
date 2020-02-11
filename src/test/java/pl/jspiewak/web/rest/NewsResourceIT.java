@@ -1,11 +1,5 @@
 package pl.jspiewak.web.rest;
 
-import pl.jspiewak.JaworznoApp;
-import pl.jspiewak.domain.News;
-import pl.jspiewak.repository.NewsRepository;
-import pl.jspiewak.service.NewsService;
-import pl.jspiewak.web.rest.errors.ExceptionTranslator;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockitoAnnotations;
@@ -17,18 +11,24 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Base64Utils;
 import org.springframework.validation.Validator;
+import pl.jspiewak.JaworznoApp;
+import pl.jspiewak.domain.News;
+import pl.jspiewak.repository.NewsRepository;
+import pl.jspiewak.service.NewsService;
+import pl.jspiewak.web.rest.errors.ExceptionTranslator;
 
 import javax.persistence.EntityManager;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 
-import static pl.jspiewak.web.rest.TestUtil.createFormattingConversionService;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static pl.jspiewak.web.rest.TestUtil.createFormattingConversionService;
 
 /**
  * Integration tests for the {@link NewsResource} REST controller.
@@ -47,6 +47,11 @@ public class NewsResourceIT {
 
     private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";
     private static final String UPDATED_DESCRIPTION = "BBBBBBBBBB";
+
+    private static final byte[] DEFAULT_PICTURE = TestUtil.createByteArray(1, "0");
+    private static final byte[] UPDATED_PICTURE = TestUtil.createByteArray(1, "1");
+    private static final String DEFAULT_PICTURE_CONTENT_TYPE = "image/jpg";
+    private static final String UPDATED_PICTURE_CONTENT_TYPE = "image/png";
 
     @Autowired
     private NewsRepository newsRepository;
@@ -96,7 +101,9 @@ public class NewsResourceIT {
             .title(DEFAULT_TITLE)
             .content(DEFAULT_CONTENT)
             .date(DEFAULT_DATE)
-            .description(DEFAULT_DESCRIPTION);
+            .description(DEFAULT_DESCRIPTION)
+            .picture(DEFAULT_PICTURE)
+            .pictureContentType(DEFAULT_PICTURE_CONTENT_TYPE);
         return news;
     }
     /**
@@ -110,7 +117,9 @@ public class NewsResourceIT {
             .title(UPDATED_TITLE)
             .content(UPDATED_CONTENT)
             .date(UPDATED_DATE)
-            .description(UPDATED_DESCRIPTION);
+            .description(UPDATED_DESCRIPTION)
+            .picture(UPDATED_PICTURE)
+            .pictureContentType(UPDATED_PICTURE_CONTENT_TYPE);
         return news;
     }
 
@@ -138,6 +147,8 @@ public class NewsResourceIT {
         assertThat(testNews.getContent()).isEqualTo(DEFAULT_CONTENT);
         assertThat(testNews.getDate()).isEqualTo(DEFAULT_DATE);
         assertThat(testNews.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
+        assertThat(testNews.getPicture()).isEqualTo(DEFAULT_PICTURE);
+        assertThat(testNews.getPictureContentType()).isEqualTo(DEFAULT_PICTURE_CONTENT_TYPE);
     }
 
     @Test
@@ -174,9 +185,11 @@ public class NewsResourceIT {
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE)))
             .andExpect(jsonPath("$.[*].content").value(hasItem(DEFAULT_CONTENT)))
             .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
-            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)));
+            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)))
+            .andExpect(jsonPath("$.[*].pictureContentType").value(hasItem(DEFAULT_PICTURE_CONTENT_TYPE)))
+            .andExpect(jsonPath("$.[*].picture").value(hasItem(Base64Utils.encodeToString(DEFAULT_PICTURE))));
     }
-    
+
     @Test
     @Transactional
     public void getNews() throws Exception {
@@ -191,7 +204,9 @@ public class NewsResourceIT {
             .andExpect(jsonPath("$.title").value(DEFAULT_TITLE))
             .andExpect(jsonPath("$.content").value(DEFAULT_CONTENT))
             .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
-            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION));
+            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION))
+            .andExpect(jsonPath("$.pictureContentType").value(DEFAULT_PICTURE_CONTENT_TYPE))
+            .andExpect(jsonPath("$.picture").value(Base64Utils.encodeToString(DEFAULT_PICTURE)));
     }
 
     @Test
@@ -218,7 +233,9 @@ public class NewsResourceIT {
             .title(UPDATED_TITLE)
             .content(UPDATED_CONTENT)
             .date(UPDATED_DATE)
-            .description(UPDATED_DESCRIPTION);
+            .description(UPDATED_DESCRIPTION)
+            .picture(UPDATED_PICTURE)
+            .pictureContentType(UPDATED_PICTURE_CONTENT_TYPE);
 
         restNewsMockMvc.perform(put("/api/news")
             .contentType(TestUtil.APPLICATION_JSON)
@@ -233,6 +250,8 @@ public class NewsResourceIT {
         assertThat(testNews.getContent()).isEqualTo(UPDATED_CONTENT);
         assertThat(testNews.getDate()).isEqualTo(UPDATED_DATE);
         assertThat(testNews.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
+        assertThat(testNews.getPicture()).isEqualTo(UPDATED_PICTURE);
+        assertThat(testNews.getPictureContentType()).isEqualTo(UPDATED_PICTURE_CONTENT_TYPE);
     }
 
     @Test

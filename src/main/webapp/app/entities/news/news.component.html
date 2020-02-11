@@ -27,26 +27,34 @@
                     <th scope="col" ><span jhiTranslate="jaworznoApp.news.content">Content</span></th>
                     <th scope="col" ><span jhiTranslate="jaworznoApp.news.date">Date</span></th>
                     <th scope="col" ><span jhiTranslate="jaworznoApp.news.description">Description</span></th>
+                    <th scope="col"><span jhiTranslate="jaworznoApp.news.picture">Picture</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let news of news ;trackBy: trackId">
-                    <td><a [routerLink]="['/news', news.id, 'view']">{{ news.id }}</a></td>
-                    <td>{{ news.title }}</td>
-                    <td>{{ news.content }}</td>
-                    <td>{{ news.date | date:'medium' }}</td>
-                    <td>{{ news.description }}</td>
-                    <td class="text-right">
-                        <div class="btn-group">
-                            <button type="submit"
-                                    [routerLink]="['/news', news.id, 'view']"
-                                    class="btn btn-info btn-sm">
-                                <fa-icon icon="eye"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                            </button>
+            <tr *ngFor="let news of news ;trackBy: trackId">
+                <td><a [routerLink]="['/news', news.id, 'view']">{{ news.id }}</a></td>
+                <td>{{ news.title }}</td>
+                <td>{{ news.content }}</td>
+                <td>{{ news.date | date:'medium' }}</td>
+                <td>{{ news.description }}</td>
+                <td>
+                    <a (click)="openFile(news.pictureContentType, news.picture)" *ngIf="news.picture">
+                        <img [src]="'data:' + news.pictureContentType + ';base64,' + news.picture" alt="news image"
+                             style="max-height: 30px;"/>
+                    </a>
+                    <span *ngIf="news.picture">{{ news.pictureContentType }}, {{ byteSize(news.picture) }}</span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/news', news.id, 'view']"
+                                class="btn btn-info btn-sm">
+                            <fa-icon icon="eye"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
 
-                            <button type="submit"
+                        <button type="submit"
                                     [routerLink]="['/news', news.id, 'edit']"
                                     class="btn btn-primary btn-sm">
                                 <fa-icon icon="pencil-alt"></fa-icon>

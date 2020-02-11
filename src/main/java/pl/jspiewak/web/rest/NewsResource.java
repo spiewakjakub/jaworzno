@@ -1,9 +1,5 @@
 package pl.jspiewak.web.rest;
 
-import pl.jspiewak.domain.News;
-import pl.jspiewak.service.NewsService;
-import pl.jspiewak.web.rest.errors.BadRequestAlertException;
-
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
@@ -11,7 +7,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.jspiewak.domain.News;
+import pl.jspiewak.service.NewsService;
+import pl.jspiewak.web.rest.errors.BadRequestAlertException;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -45,7 +45,7 @@ public class NewsResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/news")
-    public ResponseEntity<News> createNews(@RequestBody News news) throws URISyntaxException {
+    public ResponseEntity<News> createNews(@Valid @RequestBody News news) throws URISyntaxException {
         log.debug("REST request to save News : {}", news);
         if (news.getId() != null) {
             throw new BadRequestAlertException("A new news cannot already have an ID", ENTITY_NAME, "idexists");
@@ -66,7 +66,7 @@ public class NewsResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/news")
-    public ResponseEntity<News> updateNews(@RequestBody News news) throws URISyntaxException {
+    public ResponseEntity<News> updateNews(@Valid @RequestBody News news) throws URISyntaxException {
         log.debug("REST request to update News : {}", news);
         if (news.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");

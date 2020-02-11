@@ -26,14 +26,47 @@
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="jaworznoApp.news.date" for="field_date">Date</label>
                     <div class="d-flex">
-                        <input id="field_date" type="datetime-local" class="form-control" name="date" formControlName="date" placeholder="YYYY-MM-DD HH:mm"/>
+                        <input id="field_date" type="datetime-local" class="form-control" name="date"
+                               formControlName="date" placeholder="YYYY-MM-DD HH:mm"/>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="jaworznoApp.news.description" for="field_description">Description</label>
+                    <label class="form-control-label" jhiTranslate="jaworznoApp.news.description"
+                           for="field_description">Description</label>
                     <input type="text" class="form-control" name="description" id="field_description"
                            formControlName="description"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_picture" jhiTranslate="jaworznoApp.news.picture">Picture</label>
+                    <div>
+                        <img *ngIf="editForm.get('picture')!.value"
+                             [src]="'data:' + editForm.get('pictureContentType')!.value + ';base64,' + editForm.get('picture')!.value"
+                             alt="news image" style="max-height: 100px;"/>
+                        <div *ngIf="editForm.get('picture')!.value" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{ editForm.get('pictureContentType')!.value }}
+                                , {{ byteSize(editForm.get('picture')!.value) }}</span>
+                            <button (click)="clearInputImage('picture', 'pictureContentType', 'file_picture')"
+                                    class="btn btn-secondary btn-xs pull-right" type="button">
+                                <fa-icon icon="times"></fa-icon>
+                            </button>
+                        </div>
+                        <input (change)="setFileData($event, 'picture', true)" accept="image/*" id="file_picture"
+                               jhiTranslate="entity.action.addimage" type="file"/>
+                    </div>
+                    <input class="form-control" formControlName="picture" id="field_picture" name="picture"
+                           type="hidden"/>
+                    <input class="form-control" formControlName="pictureContentType" id="field_pictureContentType"
+                           name="pictureContentType"
+                           type="hidden"/>
+                    <div
+                        *ngIf="editForm.get('picture')!.invalid && (editForm.get('picture')!.dirty || editForm.get('picture')!.touched)">
+                        <small *ngIf="editForm.get('picture')?.errors?.required"
+                               class="form-text text-danger" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                    </div>
                 </div>
             </div>
 

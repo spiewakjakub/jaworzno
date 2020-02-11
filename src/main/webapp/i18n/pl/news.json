@@ -19,7 +19,8 @@
       "title": "Title",
       "content": "Content",
       "date": "Date",
-      "description": "Description"
+      "description": "Description",
+      "picture": "Picture"
     }
   }
 }

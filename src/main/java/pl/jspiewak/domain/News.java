@@ -2,7 +2,6 @@ package pl.jspiewak.domain;
 
 
 import javax.persistence.*;
-
 import java.io.Serializable;
 import java.time.Instant;
 
@@ -31,6 +30,14 @@ public class News implements Serializable {
 
     @Column(name = "description")
     private String description;
+
+
+    @Lob
+    @Column(name = "picture", nullable = false)
+    private byte[] picture;
+
+    @Column(name = "picture_content_type", nullable = false)
+    private String pictureContentType;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -92,6 +99,32 @@ public class News implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public byte[] getPicture() {
+        return picture;
+    }
+
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
+    }
+
+    public News picture(byte[] picture) {
+        this.picture = picture;
+        return this;
+    }
+
+    public String getPictureContentType() {
+        return pictureContentType;
+    }
+
+    public void setPictureContentType(String pictureContentType) {
+        this.pictureContentType = pictureContentType;
+    }
+
+    public News pictureContentType(String pictureContentType) {
+        this.pictureContentType = pictureContentType;
+        return this;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -118,6 +151,8 @@ public class News implements Serializable {
             ", content='" + getContent() + "'" +
             ", date='" + getDate() + "'" +
             ", description='" + getDescription() + "'" +
+            ", picture='" + getPicture() + "'" +
+            ", pictureContentType='" + getPictureContentType() + "'" +
             "}";
     }
 }
