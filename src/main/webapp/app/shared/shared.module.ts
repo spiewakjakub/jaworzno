@@ -5,10 +5,18 @@ import { AlertComponent } from './alert/alert.component';
 import { AlertErrorComponent } from './alert/alert-error.component';
 import { LoginModalComponent } from './login/login.component';
 import { HasAnyAuthorityDirective } from './auth/has-any-authority.directive';
+import { SocialMediaComponent } from './social-media/social-media.component';
 
 @NgModule({
   imports: [JaworznoSharedLibsModule],
-  declarations: [FindLanguageFromKeyPipe, AlertComponent, AlertErrorComponent, LoginModalComponent, HasAnyAuthorityDirective],
+  declarations: [
+    FindLanguageFromKeyPipe,
+    AlertComponent,
+    AlertErrorComponent,
+    LoginModalComponent,
+    HasAnyAuthorityDirective,
+    SocialMediaComponent
+  ],
   entryComponents: [LoginModalComponent],
   exports: [
     JaworznoSharedLibsModule,
@@ -16,7 +24,8 @@ import { HasAnyAuthorityDirective } from './auth/has-any-authority.directive';
     AlertComponent,
     AlertErrorComponent,
     LoginModalComponent,
-    HasAnyAuthorityDirective
+    HasAnyAuthorityDirective,
+    SocialMediaComponent
   ]
 })
 export class JaworznoSharedModule {}
