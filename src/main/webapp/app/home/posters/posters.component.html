@@ -1,5 +1,5 @@
-<div class="d-flex justify-content-between">
-    <div *ngFor="let poster of posters">
+<div class="row d-flex justify-content-between">
+    <div *ngFor="let poster of posters" class="col-6 col-md-3">
         <jhi-poster
             (click)="onPosterClick(poster.link)"
             [poster]="poster"></jhi-poster>
