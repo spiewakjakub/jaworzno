@@ -11,6 +11,7 @@ import { PosterComponent } from './posters/poster/poster.component';
 import { PostersComponent } from './posters/posters.component';
 import { NewsComponent } from './news/news.component';
 import { SingleNewsComponent } from './news/single-news/single-news.component';
+import { HomeTitleComponent } from './home-title/home-title.component';
 
 @NgModule({
   imports: [JaworznoSharedModule, RouterModule.forChild([HOME_ROUTE])],
@@ -22,7 +23,8 @@ import { SingleNewsComponent } from './news/single-news/single-news.component';
     PostersComponent,
     PosterComponent,
     NewsComponent,
-    SingleNewsComponent
+    SingleNewsComponent,
+    HomeTitleComponent
   ]
 })
 export class JaworznoHomeModule {}

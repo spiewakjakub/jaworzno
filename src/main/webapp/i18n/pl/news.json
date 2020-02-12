@@ -5,8 +5,7 @@
         "title": "Aktualności",
         "createLabel": "Dodaj News",
         "createOrEditLabel": "Dodaj lub edytuj: News",
-        "notFound": "No News found",
-        "viewAll": "Zobacz wszystkie"
+        "notFound": "No News found"
       },
       "created": "Utworzono nowy obiekt typu News z identyfikatorem {{ param }}",
       "updated": "Uaktualniono obiekt typu News z identyfikatorem {{ param }}",
@@ -23,5 +22,8 @@
       "description": "Description",
       "picture": "Picture"
     }
+  },
+  "news": {
+    "title": "Aktualności"
   }
 }

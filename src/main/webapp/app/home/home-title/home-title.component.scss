@@ -1,0 +1,30 @@
+@import 'src/main/webapp/content/scss/global';
+
+.line {
+  border-bottom: 1px solid rgba(81, 81, 81, 0.2);
+  display: block;
+  margin-bottom: 3vh;
+}
+
+.line:before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 4px;
+  background-color: $primary;
+  position: relative;
+  top: 1px;
+}
+
+.all-button {
+  font-size: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 15px 20px;
+  background-color: transparent;
+  border: 1px solid rgba(81, 81, 81, 0.2);
+}
+
+.all-button:hover {
+  background-color: rgba(81, 81, 81, 0.2);
+}
