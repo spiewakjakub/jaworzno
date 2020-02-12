@@ -2,7 +2,7 @@
     <div class="col-12">
         <div class="d-flex">
             <h1 [jhiTranslate]="titleTranslate">Title</h1>
-            <a class="all-button ml-auto" [routerLink]="routerLink" jhiTranslate="main.viewAll">View all</a>
+            <a *ngIf="routerLink" class="all-button ml-auto" [routerLink]="routerLink" jhiTranslate="main.viewAll">View all</a>
         </div>
 
         <span class="line"></span>
