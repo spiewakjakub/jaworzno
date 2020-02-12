@@ -6,6 +6,7 @@ import { AlertErrorComponent } from './alert/alert-error.component';
 import { LoginModalComponent } from './login/login.component';
 import { HasAnyAuthorityDirective } from './auth/has-any-authority.directive';
 import { SocialMediaComponent } from './social-media/social-media.component';
+import { SingleNewsPreviewComponent } from 'app/shared/single-news-preview/single-news-preview.component';
 
 @NgModule({
   imports: [JaworznoSharedLibsModule],
@@ -15,7 +16,8 @@ import { SocialMediaComponent } from './social-media/social-media.component';
     AlertErrorComponent,
     LoginModalComponent,
     HasAnyAuthorityDirective,
-    SocialMediaComponent
+    SocialMediaComponent,
+    SingleNewsPreviewComponent
   ],
   entryComponents: [LoginModalComponent],
   exports: [
@@ -25,7 +27,8 @@ import { SocialMediaComponent } from './social-media/social-media.component';
     AlertErrorComponent,
     LoginModalComponent,
     HasAnyAuthorityDirective,
-    SocialMediaComponent
+    SocialMediaComponent,
+    SingleNewsPreviewComponent
   ]
 })
 export class JaworznoSharedModule {}

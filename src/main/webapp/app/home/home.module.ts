@@ -10,7 +10,6 @@ import { PlaceItemComponent } from './places/place-item/place-item.component';
 import { PosterComponent } from './posters/poster/poster.component';
 import { PostersComponent } from './posters/posters.component';
 import { NewsComponent } from './news/news.component';
-import { SingleNewsComponent } from './news/single-news/single-news.component';
 import { HomeTitleComponent } from './home-title/home-title.component';
 
 @NgModule({
@@ -23,7 +22,6 @@ import { HomeTitleComponent } from './home-title/home-title.component';
     PostersComponent,
     PosterComponent,
     NewsComponent,
-    SingleNewsComponent,
     HomeTitleComponent
   ]
 })
