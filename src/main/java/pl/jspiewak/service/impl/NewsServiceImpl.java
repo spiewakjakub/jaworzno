@@ -1,13 +1,14 @@
 package pl.jspiewak.service.impl;
 
-import pl.jspiewak.service.NewsService;
-import pl.jspiewak.domain.News;
-import pl.jspiewak.repository.NewsRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.jspiewak.domain.News;
+import pl.jspiewak.repository.NewsRepository;
+import pl.jspiewak.service.NewsService;
 
 import java.util.List;
 import java.util.Optional;
@@ -73,5 +74,10 @@ public class NewsServiceImpl implements NewsService {
     public void delete(Long id) {
         log.debug("Request to delete News : {}", id);
         newsRepository.deleteById(id);
+    }
+
+    @Override
+    public Page<News> findAll(Pageable pageable) {
+        return newsRepository.findAll(pageable);
     }
 }

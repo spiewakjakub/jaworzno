@@ -15,6 +15,7 @@ import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ActiveMenuDirective } from './layouts/navbar/active-menu.directive';
 import { ErrorComponent } from './layouts/error/error.component';
 import { LogoBarComponent } from './layouts/logo-bar/logo-bar.component';
+import { AllNewsModule } from 'app/all-news/all-news.module';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { LogoBarComponent } from './layouts/logo-bar/logo-bar.component';
     JaworznoHomeModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     JaworznoEntityModule,
-    JaworznoAppRoutingModule
+    JaworznoAppRoutingModule,
+    AllNewsModule
   ],
   declarations: [
     MainComponent,

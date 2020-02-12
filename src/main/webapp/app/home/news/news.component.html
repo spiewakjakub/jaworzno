@@ -1,7 +1,7 @@
 <div class="row d-flex justify-content-between">
     <div *ngFor="let news of newsArray" class="col-6 col-md-3">
-        <jhi-single-news
+        <jhi-single-news-preview
             (click)="onElementClick(news)"
-            [news]="news"></jhi-single-news>
+            [news]="news"></jhi-single-news-preview>
     </div>
 </div>
