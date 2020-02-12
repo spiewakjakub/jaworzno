@@ -2,9 +2,11 @@
     <h2 id="page-heading">
         <span jhiTranslate="jaworznoApp.video.home.title">Videos</span>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-video" [routerLink]="['/video/new']">
+        <button [routerLink]="['/admin/video/new']"
+                class="btn btn-primary float-right jh-create-entity create-video"
+                id="jh-create-entity">
             <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="jaworznoApp.video.home.createLabel">
+            <span jhiTranslate="jaworznoApp.video.home.createLabel">
             Create a new Video
             </span>
         </button>
@@ -30,20 +32,20 @@
             </thead>
             <tbody>
                 <tr *ngFor="let video of videos ;trackBy: trackId">
-                    <td><a [routerLink]="['/video', video.id, 'view']">{{ video.id }}</a></td>
+                    <td><a [routerLink]="['/admin/video', video.id, 'view']">{{ video.id }}</a></td>
                     <td>{{ video.title }}</td>
                     <td>{{ video.link }}</td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/video', video.id, 'view']"
+                                    [routerLink]="['/admin/video', video.id, 'view']"
                                     class="btn btn-info btn-sm">
                                 <fa-icon icon="eye"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/video', video.id, 'edit']"
+                                    [routerLink]="['/admin/video', video.id, 'edit']"
                                     class="btn btn-primary btn-sm">
                                 <fa-icon icon="pencil-alt"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
