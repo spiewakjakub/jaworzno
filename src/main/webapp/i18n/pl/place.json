@@ -2,10 +2,10 @@
   "jaworznoApp": {
     "place": {
       "home": {
-        "title": "Place",
-        "createLabel": "Dodaj Place",
-        "createOrEditLabel": "Dodaj lub edytuj: Place",
-        "notFound": "No Places found"
+        "title": "Miejsce",
+        "createLabel": "Dodaj miejsce",
+        "createOrEditLabel": "Dodaj lub edytuj: miejsce",
+        "notFound": "Nie znaleziono miejsc"
       },
       "created": "Utworzono nowy obiekt typu Place z identyfikatorem {{ param }}",
       "updated": "Uaktualniono obiekt typu Place z identyfikatorem {{ param }}",
