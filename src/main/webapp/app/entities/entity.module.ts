@@ -5,31 +5,31 @@ import { RouterModule } from '@angular/router';
   imports: [
     RouterModule.forChild([
       {
-        path: 'news',
+        path: 'admin/news',
         loadChildren: () => import('./news/news.module').then(m => m.JaworznoNewsModule)
       },
       {
-        path: 'place',
+        path: 'admin/place',
         loadChildren: () => import('./place/place.module').then(m => m.JaworznoPlaceModule)
       },
       {
-        path: 'poster',
+        path: 'admin/poster',
         loadChildren: () => import('./poster/poster.module').then(m => m.JaworznoPosterModule)
       },
       {
-        path: 'video',
+        path: 'admin/video',
         loadChildren: () => import('./video/video.module').then(m => m.JaworznoVideoModule)
       },
       {
-        path: 'picture',
+        path: 'admin/picture',
         loadChildren: () => import('./picture/picture.module').then(m => m.JaworznoPictureModule)
       },
       {
-        path: 'album',
+        path: 'admin/album',
         loadChildren: () => import('./album/album.module').then(m => m.JaworznoAlbumModule)
       },
       {
-        path: 'sponsor',
+        path: 'admin/sponsor',
         loadChildren: () => import('./sponsor/sponsor.module').then(m => m.JaworznoSponsorModule)
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
