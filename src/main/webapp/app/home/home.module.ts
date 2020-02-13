@@ -10,10 +10,9 @@ import { PlaceItemComponent } from './places/place-item/place-item.component';
 import { PosterComponent } from './posters/poster/poster.component';
 import { PostersComponent } from './posters/posters.component';
 import { NewsComponent } from './news/news.component';
-import { SingleNewsComponent } from './news/single-news/single-news.component';
 import { HomeTitleComponent } from './home-title/home-title.component';
-import { VideoComponent } from './newest-items/video/video.component';
 import { NewestItemsComponent } from './newest-items/newest-items.component';
+import { HomeCardComponent } from './home-card/home-card.component';
 
 @NgModule({
   imports: [JaworznoSharedModule, RouterModule.forChild([HOME_ROUTE])],
@@ -25,10 +24,9 @@ import { NewestItemsComponent } from './newest-items/newest-items.component';
     PostersComponent,
     PosterComponent,
     NewsComponent,
-    SingleNewsComponent,
     HomeTitleComponent,
-    VideoComponent,
-    NewestItemsComponent
+    NewestItemsComponent,
+    HomeCardComponent
   ]
 })
 export class JaworznoHomeModule {}

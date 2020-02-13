@@ -24,7 +24,7 @@ public class Album implements Serializable {
     @Column(name = "title")
     private String title;
 
-    @OneToMany(mappedBy = "album")
+    @OneToMany(mappedBy = "album", fetch = FetchType.EAGER)
     private Set<Picture> pictures = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
