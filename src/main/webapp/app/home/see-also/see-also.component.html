@@ -4,16 +4,16 @@
     </div>
     <div *ngIf="album" class="col-6 col-md-3 order-md-first mt-2">
         <jhi-preview-card
-            [picture]="album.pictures[0].data"
-            [title]="album.title"
-            [description]="album.title">
+            [description]="album?.title"
+            [picture]="album?.pictures[0]?.data"
+            [title]="album?.title">
         </jhi-preview-card>
     </div>
     <div *ngIf="album" class="col-6 col-md-3 order-md-last mt-2 gallery-column">
         <jhi-preview-card
-            [picture]="album.pictures[0].data"
-            [title]="album.title"
-            [description]="album.title">
+            [description]="album?.title"
+            [picture]="album?.pictures[0]?.data"
+            [title]="album?.title">
         </jhi-preview-card>
     </div>
 </div>

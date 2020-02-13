@@ -3,11 +3,11 @@ import { AlbumService } from 'app/entities/album/album.service';
 import { Album } from 'app/shared/model/album.model';
 
 @Component({
-  selector: 'jhi-newest-items',
-  templateUrl: './newest-items.component.html',
-  styleUrls: ['./newest-items.component.scss']
+  selector: 'jhi-see-also',
+  templateUrl: './see-also.component.html',
+  styleUrls: ['./see-also.component.scss']
 })
-export class NewestItemsComponent implements OnInit {
+export class SeeAlsoComponent implements OnInit {
   album?: Album;
 
   constructor(private albumService: AlbumService) {}
