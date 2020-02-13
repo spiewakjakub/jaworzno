@@ -9,20 +9,22 @@
 <div class="container">
     <div class="row mb-4">
         <div class="col">
-            <jhi-home-title titleTranslate="poster.title"></jhi-home-title>
+            <jhi-title titleTranslate="poster.title">Wydarzenia</jhi-title>
             <jhi-posters></jhi-posters>
         </div>
     </div>
     <div class="row mb-4">
         <div class="col">
-            <jhi-home-title routerLink="news"
-                            titleTranslate="news.title"></jhi-home-title>
-            <jhi-news></jhi-news>
+            <jhi-title titleTranslate="main.seeTo">Zobacz również</jhi-title>
+            <jhi-see-also></jhi-see-also>
         </div>
     </div>
     <div class="row mb-4">
         <div class="col">
-            no hej
+            <jhi-title router="news"
+                       titleTranslate="news.title">Aktualności
+            </jhi-title>
+            <jhi-news></jhi-news>
         </div>
     </div>
 </div>

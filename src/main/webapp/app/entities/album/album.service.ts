@@ -35,4 +35,9 @@ export class AlbumService {
   delete(id: number): Observable<HttpResponse<{}>> {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
+
+  getNewest(): Observable<EntityResponseType> {
+    const options = {};
+    return this.http.get<IAlbum>(this.resourceUrl, { params: options, observe: 'response' });
+  }
 }
