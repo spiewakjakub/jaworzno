@@ -2,18 +2,18 @@
     <div class="col-12 col-md-6 mt-2">
         <jhi-video src="UclCCFNG9q4"></jhi-video>
     </div>
-    <div class="col-6 col-md-3 order-md-first mt-2">
-        <jhi-home-card
+    <div *ngIf="album" class="col-6 col-md-3 order-md-first mt-2">
+        <jhi-preview-card
             [picture]="album.pictures[0].data"
             [title]="album.title"
             [description]="album.title">
-        </jhi-home-card>
+        </jhi-preview-card>
     </div>
     <div *ngIf="album" class="col-6 col-md-3 order-md-last mt-2 gallery-column">
-        <jhi-home-card
+        <jhi-preview-card
             [picture]="album.pictures[0].data"
             [title]="album.title"
             [description]="album.title">
-        </jhi-home-card>
+        </jhi-preview-card>
     </div>
 </div>

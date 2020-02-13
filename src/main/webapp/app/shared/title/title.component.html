@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex">
+            <h1 [jhiTranslate]="titleTranslate"><ng-content></ng-content></h1>
+            <button *ngIf="router" class="all-button ml-auto" [routerLink]="router" jhiTranslate="main.viewAll">View all</button>
+        </div>
+
+        <span class="line"></span>
+    </div>
+</div>

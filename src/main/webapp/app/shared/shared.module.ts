@@ -8,6 +8,8 @@ import { HasAnyAuthorityDirective } from './auth/has-any-authority.directive';
 import { SocialMediaComponent } from './social-media/social-media.component';
 import { VideoComponent } from 'app/shared/video/video.component';
 import { SingleNewsPreviewComponent } from 'app/shared/single-news-preview/single-news-preview.component';
+import { PreviewCardComponent } from 'app/shared/preview-card/preview-card.component';
+import { TitleComponent } from 'app/shared/title/title.component';
 
 @NgModule({
   imports: [JaworznoSharedLibsModule],
@@ -19,7 +21,9 @@ import { SingleNewsPreviewComponent } from 'app/shared/single-news-preview/singl
     HasAnyAuthorityDirective,
     SocialMediaComponent,
     VideoComponent,
-    SingleNewsPreviewComponent
+    SingleNewsPreviewComponent,
+    PreviewCardComponent,
+    TitleComponent
   ],
   entryComponents: [LoginModalComponent],
   exports: [
@@ -31,7 +35,9 @@ import { SingleNewsPreviewComponent } from 'app/shared/single-news-preview/singl
     HasAnyAuthorityDirective,
     SocialMediaComponent,
     SingleNewsPreviewComponent,
-    VideoComponent
+    VideoComponent,
+    PreviewCardComponent,
+    TitleComponent
   ]
 })
 export class JaworznoSharedModule {}

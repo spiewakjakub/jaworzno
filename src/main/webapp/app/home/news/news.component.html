@@ -1,10 +1,10 @@
 <div class="row d-flex justify-content-between">
     <div *ngFor="let news of newsArray" class="col-6 col-md-3">
-        <jhi-home-card
+        <jhi-preview-card
             (click)="onElementClick(news)"
             [date]="news.date"
             [title]="news.title"
             [description]="news.description"
-            [picture]="news.picture"></jhi-home-card>
+            [picture]="news.picture"></jhi-preview-card>
     </div>
 </div>
