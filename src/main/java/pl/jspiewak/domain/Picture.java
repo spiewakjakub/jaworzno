@@ -1,6 +1,7 @@
 package pl.jspiewak.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
@@ -21,6 +22,7 @@ public class Picture implements Serializable {
     private Long id;
 
     @Lob
+    @Type(type = "byte[]")
     @Column(name = "data")
     private byte[] data;
 
