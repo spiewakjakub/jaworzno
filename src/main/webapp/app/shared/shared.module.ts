@@ -7,6 +7,7 @@ import { LoginModalComponent } from './login/login.component';
 import { HasAnyAuthorityDirective } from './auth/has-any-authority.directive';
 import { SocialMediaComponent } from './social-media/social-media.component';
 import { VideoComponent } from 'app/shared/video/video.component';
+import { SingleNewsPreviewComponent } from 'app/shared/single-news-preview/single-news-preview.component';
 
 @NgModule({
   imports: [JaworznoSharedLibsModule],
@@ -17,7 +18,8 @@ import { VideoComponent } from 'app/shared/video/video.component';
     LoginModalComponent,
     HasAnyAuthorityDirective,
     SocialMediaComponent,
-    VideoComponent
+    VideoComponent,
+    SingleNewsPreviewComponent
   ],
   entryComponents: [LoginModalComponent],
   exports: [
@@ -28,6 +30,7 @@ import { VideoComponent } from 'app/shared/video/video.component';
     LoginModalComponent,
     HasAnyAuthorityDirective,
     SocialMediaComponent,
+    SingleNewsPreviewComponent,
     VideoComponent
   ]
 })

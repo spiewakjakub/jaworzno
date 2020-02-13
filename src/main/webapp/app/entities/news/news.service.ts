@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import * as moment from 'moment';
+import { Injectable } from '@angular/core';
 
 import { SERVER_API_URL } from 'app/app.constants';
-import { createRequestOption } from 'app/shared/util/request-util';
 import { INews } from 'app/shared/model/news.model';
+import { createRequestOption } from 'app/shared/util/request-util';
+import * as moment from 'moment';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 type EntityResponseType = HttpResponse<INews>;
 type EntityArrayResponseType = HttpResponse<INews[]>;
@@ -46,6 +46,16 @@ export class NewsService {
 
   delete(id: number): Observable<HttpResponse<{}>> {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
+  }
+
+  getPage(page: number, size: number): Observable<HttpResponse<any>> {
+    return this.http.get<INews[]>(SERVER_API_URL + '/api/newses', {
+      params: {
+        page: page.toString(),
+        size: size.toString()
+      },
+      observe: 'response'
+    });
   }
 
   protected convertDateFromClient(news: INews): INews {

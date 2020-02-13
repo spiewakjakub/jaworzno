@@ -2,9 +2,11 @@
     <h2 id="page-heading">
         <span jhiTranslate="jaworznoApp.poster.home.title">Posters</span>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-poster" [routerLink]="['/poster/new']">
+        <button [routerLink]="['/admin/poster/new']"
+                class="btn btn-primary float-right jh-create-entity create-poster"
+                id="jh-create-entity">
             <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="jaworznoApp.poster.home.createLabel">
+            <span jhiTranslate="jaworznoApp.poster.home.createLabel">
             Create a new Poster
             </span>
         </button>
@@ -30,7 +32,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let poster of posters ;trackBy: trackId">
-                    <td><a [routerLink]="['/poster', poster.id, 'view']">{{ poster.id }}</a></td>
+                    <td><a [routerLink]="['/admin/poster', poster.id, 'view']">{{ poster.id }}</a></td>
                     <td>
                         <a *ngIf="poster.data" (click)="openFile(poster.dataContentType, poster.data)" jhiTranslate="entity.action.open">open</a>
                         <span *ngIf="poster.data">{{ poster.dataContentType }}, {{ byteSize(poster.data) }}</span>
@@ -39,14 +41,14 @@
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/poster', poster.id, 'view']"
+                                    [routerLink]="['/admin/poster', poster.id, 'view']"
                                     class="btn btn-info btn-sm">
                                 <fa-icon icon="eye"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/poster', poster.id, 'edit']"
+                                    [routerLink]="['/admin/poster', poster.id, 'edit']"
                                     class="btn btn-primary btn-sm">
                                 <fa-icon icon="pencil-alt"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>

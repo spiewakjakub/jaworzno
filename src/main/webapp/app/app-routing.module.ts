@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { errorRoute } from './layouts/error/error.route';
-import { navbarRoute } from './layouts/navbar/navbar.route';
 import { DEBUG_INFO_ENABLED } from 'app/app.constants';
 
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
+import { errorRoute } from './layouts/error/error.route';
+import { navbarRoute } from './layouts/navbar/navbar.route';
 
 const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
 
@@ -23,6 +23,30 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
         {
           path: 'account',
           loadChildren: () => import('./account/account.module').then(m => m.AccountModule)
+        },
+        {
+          path: 'news',
+          loadChildren: () => import('./all-news/all-news.module').then(module => module.AllNewsModule)
+        },
+        {
+          path: 'organizer',
+          loadChildren: () => import('./organizer/organizer.module').then(module => module.OrganizerModule)
+        },
+        {
+          path: 'voluntary',
+          loadChildren: () => import('./voluntary/voluntary.module').then(module => module.VoluntaryModule)
+        },
+        {
+          path: 'pictures',
+          loadChildren: () => import('./pictures/pictures.module').then(module => module.PicturesModule)
+        },
+        {
+          path: 'videos',
+          loadChildren: () => import('./videos/videos.module').then(module => module.VideosModule)
+        },
+        {
+          path: 'previous',
+          loadChildren: () => import('./previous/previous.module').then(module => module.PreviousModule)
         },
         ...LAYOUT_ROUTES
       ],

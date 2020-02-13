@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AlbumService } from 'app/entities/album/album.service';
-import { PictureService } from 'app/entities/picture/picture.service';
 import { Album } from 'app/shared/model/album.model';
 
 @Component({

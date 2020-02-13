@@ -2,9 +2,11 @@
     <h2 id="page-heading">
         <span jhiTranslate="jaworznoApp.picture.home.title">Pictures</span>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-picture" [routerLink]="['/picture/new']">
+        <button [routerLink]="['/admin/picture/new']"
+                class="btn btn-primary float-right jh-create-entity create-picture"
+                id="jh-create-entity">
             <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="jaworznoApp.picture.home.createLabel">
+            <span jhiTranslate="jaworznoApp.picture.home.createLabel">
             Create a new Picture
             </span>
         </button>
@@ -30,27 +32,27 @@
             </thead>
             <tbody>
                 <tr *ngFor="let picture of pictures ;trackBy: trackId">
-                    <td><a [routerLink]="['/picture', picture.id, 'view']">{{ picture.id }}</a></td>
+                    <td><a [routerLink]="['/admin/picture', picture.id, 'view']">{{ picture.id }}</a></td>
                     <td>
                         <a *ngIf="picture.data" (click)="openFile(picture.dataContentType, picture.data)" jhiTranslate="entity.action.open">open</a>
                         <span *ngIf="picture.data">{{ picture.dataContentType }}, {{ byteSize(picture.data) }}</span>
                     </td>
                     <td>
                         <div *ngIf="picture.album">
-                            <a [routerLink]="['/album', picture.album?.id, 'view']" >{{ picture.album?.id }}</a>
+                            <a [routerLink]="['/admin/album', picture.album?.id, 'view']">{{ picture.album?.id }}</a>
                         </div>
                     </td>
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/picture', picture.id, 'view']"
+                                    [routerLink]="['/admin/picture', picture.id, 'view']"
                                     class="btn btn-info btn-sm">
                                 <fa-icon icon="eye"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/picture', picture.id, 'edit']"
+                                    [routerLink]="['/admin/picture', picture.id, 'edit']"
                                     class="btn btn-primary btn-sm">
                                 <fa-icon icon="pencil-alt"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>

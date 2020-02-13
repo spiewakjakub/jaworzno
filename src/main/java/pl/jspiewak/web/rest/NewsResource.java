@@ -5,6 +5,8 @@ import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.jspiewak.domain.News;
@@ -112,5 +114,11 @@ public class NewsResource {
         log.debug("REST request to delete News : {}", id);
         newsService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
+    }
+
+    @GetMapping("/newses")
+    public Page<News> getNewsPage(@RequestParam String page, @RequestParam String size) {
+        PageRequest pageable = PageRequest.of(Integer.parseInt(page), Integer.parseInt(size));
+        return newsService.findAll(pageable);
     }
 }

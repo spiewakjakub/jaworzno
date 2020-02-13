@@ -1,5 +1,7 @@
 package pl.jspiewak.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import pl.jspiewak.domain.News;
 
 import java.util.List;
@@ -39,4 +41,12 @@ public interface NewsService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    /**
+     * Get "page" of news
+     *
+     * @param pageable pageable
+     * @return the page of entities
+     */
+    Page<News> findAll(Pageable pageable);
 }

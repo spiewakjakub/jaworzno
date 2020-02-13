@@ -2,9 +2,11 @@
     <h2 id="page-heading">
         <span jhiTranslate="jaworznoApp.sponsor.home.title">Sponsors</span>
 
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-sponsor" [routerLink]="['/sponsor/new']">
+        <button [routerLink]="['/admin/sponsor/new']"
+                class="btn btn-primary float-right jh-create-entity create-sponsor"
+                id="jh-create-entity">
             <fa-icon icon="plus"></fa-icon>
-            <span  jhiTranslate="jaworznoApp.sponsor.home.createLabel">
+            <span jhiTranslate="jaworznoApp.sponsor.home.createLabel">
             Create a new Sponsor
             </span>
         </button>
@@ -31,7 +33,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let sponsor of sponsors ;trackBy: trackId">
-                    <td><a [routerLink]="['/sponsor', sponsor.id, 'view']">{{ sponsor.id }}</a></td>
+                    <td><a [routerLink]="['/admin/sponsor', sponsor.id, 'view']">{{ sponsor.id }}</a></td>
                     <td>
                         <a *ngIf="sponsor.logo" (click)="openFile(sponsor.logoContentType, sponsor.logo)" jhiTranslate="entity.action.open">open</a>
                         <span *ngIf="sponsor.logo">{{ sponsor.logoContentType }}, {{ byteSize(sponsor.logo) }}</span>
@@ -41,14 +43,14 @@
                     <td class="text-right">
                         <div class="btn-group">
                             <button type="submit"
-                                    [routerLink]="['/sponsor', sponsor.id, 'view']"
+                                    [routerLink]="['/admin/sponsor', sponsor.id, 'view']"
                                     class="btn btn-info btn-sm">
                                 <fa-icon icon="eye"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                             </button>
 
                             <button type="submit"
-                                    [routerLink]="['/sponsor', sponsor.id, 'edit']"
+                                    [routerLink]="['/admin/sponsor', sponsor.id, 'edit']"
                                     class="btn btn-primary btn-sm">
                                 <fa-icon icon="pencil-alt"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
