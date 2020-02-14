@@ -1,14 +1,10 @@
 {
     "name": "News",
     "fields": [
-        {
-            "fieldName": "title",
-            "fieldType": "String"
-        },
-        {
-          "fieldName": "content",
-          "fieldType": "String"
-        },
+      {
+        "fieldName": "title",
+        "fieldType": "String"
+      },
       {
         "fieldName": "date",
         "fieldType": "Instant"
@@ -24,6 +20,11 @@
         "fieldValidateRules": [
           "required"
         ]
+      },
+      {
+        "fieldName": "content",
+        "fieldType": "byte[]",
+        "fieldTypeBlobContent": "text"
       }
     ],
   "relationships": [],

@@ -1,5 +1,6 @@
 package pl.jspiewak.domain;
 
+import org.hibernate.annotations.Type;
 
 import org.hibernate.annotations.Type;
 
@@ -24,9 +25,6 @@ public class News implements Serializable {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "content")
-    private String content;
-
     @Column(name = "date")
     private Instant date;
 
@@ -41,6 +39,11 @@ public class News implements Serializable {
 
     @Column(name = "picture_content_type", nullable = false)
     private String pictureContentType;
+
+    @Lob
+    @Type(type = "org.hibernate.type.TextType")
+    @Column(name = "content")
+    private String content;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -62,19 +65,6 @@ public class News implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public News content(String content) {
-        this.content = content;
-        return this;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
     }
 
     public Instant getDate() {
@@ -107,25 +97,38 @@ public class News implements Serializable {
         return picture;
     }
 
-    public void setPicture(byte[] picture) {
-        this.picture = picture;
-    }
-
     public News picture(byte[] picture) {
         this.picture = picture;
         return this;
+    }
+
+    public void setPicture(byte[] picture) {
+        this.picture = picture;
     }
 
     public String getPictureContentType() {
         return pictureContentType;
     }
 
+    public News pictureContentType(String pictureContentType) {
+        this.pictureContentType = pictureContentType;
+        return this;
+    }
+
     public void setPictureContentType(String pictureContentType) {
         this.pictureContentType = pictureContentType;
     }
 
-    public News pictureContentType(String pictureContentType) {
-        this.pictureContentType = pictureContentType;
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public News content(String content) {
+        this.content = content;
         return this;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
@@ -151,11 +154,11 @@ public class News implements Serializable {
         return "News{" +
             "id=" + getId() +
             ", title='" + getTitle() + "'" +
-            ", content='" + getContent() + "'" +
             ", date='" + getDate() + "'" +
             ", description='" + getDescription() + "'" +
             ", picture='" + getPicture() + "'" +
             ", pictureContentType='" + getPictureContentType() + "'" +
+            ", content='" + getContent() + "'" +
             "}";
     }
 }

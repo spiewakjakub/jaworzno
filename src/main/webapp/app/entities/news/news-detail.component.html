@@ -12,10 +12,6 @@
                 <dd>
                     <span>{{ news.title }}</span>
                 </dd>
-                <dt><span jhiTranslate="jaworznoApp.news.content">Content</span></dt>
-                <dd>
-                    <span>{{ news.content }}</span>
-                </dd>
                 <dt><span jhiTranslate="jaworznoApp.news.date">Date</span></dt>
                 <dd>
                     <span>{{ news.date }}</span>
@@ -35,6 +31,10 @@
                     </div>
                 </dd>
             </dl>
+            <dt><span jhiTranslate="jaworznoApp.news.content">Content</span></dt>
+            <dd>
+                <div [innerHTML]="news.content"></div>
+            </dd>
 
             <button type="submit"
                     (click)="previousState()"

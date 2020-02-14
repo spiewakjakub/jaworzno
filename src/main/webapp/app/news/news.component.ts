@@ -4,10 +4,10 @@ import { INews, News } from 'app/shared/model/news.model';
 
 @Component({
   selector: 'jhi-all-news',
-  templateUrl: './all-news.component.html',
-  styleUrls: ['./all-news.component.scss']
+  templateUrl: './news.component.html',
+  styleUrls: ['./news.component.scss']
 })
-export class AllNewsComponent implements OnInit {
+export class NewsComponent implements OnInit {
   newsArray: INews[] | null = [];
   page = 1;
   pageSize = 8;
