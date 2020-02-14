@@ -36,8 +36,13 @@ export class AlbumService {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
-  getNewest(): Observable<EntityResponseType> {
-    const options = {};
-    return this.http.get<IAlbum>(this.resourceUrl, { params: options, observe: 'response' });
+  getPage(page: number, size: number): Observable<HttpResponse<any>> {
+    return this.http.get<IAlbum[]>(SERVER_API_URL + '/api/albums/page', {
+      params: {
+        page: page.toString(),
+        size: size.toString()
+      },
+      observe: 'response'
+    });
   }
 }

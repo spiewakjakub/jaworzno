@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { JaworznoCoreModule } from 'app/core/core.module';
 import { NewsModule } from 'app/news/news.module';
 import { OrganizerModule } from 'app/organizer/organizer.module';
-import { PicturesModule } from 'app/pictures/pictures.module';
+import { AlbumsModule } from 'app/albums/albums.module';
 import { PreviousModule } from 'app/previous/previous.module';
 import { JaworznoSharedModule } from 'app/shared/shared.module';
 import { VideosModule } from 'app/videos/videos.module';
@@ -34,7 +34,7 @@ import './vendor';
     NewsModule,
     OrganizerModule,
     VoluntaryModule,
-    PicturesModule,
+    AlbumsModule,
     VideosModule,
     PreviousModule
   ],

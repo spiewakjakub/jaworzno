@@ -14,6 +14,7 @@ export class NewsListComponent implements OnInit {
   @Input() isPaginated = false;
   @Input() size = 0;
   totalElements = 0;
+  totalPages = 0;
 
   constructor(private newsService: NewsService) {}
 
@@ -27,6 +28,7 @@ export class NewsListComponent implements OnInit {
       response => {
         this.totalElements = response.body.totalElements;
         this.newsArray = response.body.content;
+        this.totalPages = response.body.totalPages;
       },
       error => {
         console.error(error);

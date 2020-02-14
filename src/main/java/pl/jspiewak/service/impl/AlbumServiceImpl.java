@@ -1,13 +1,14 @@
 package pl.jspiewak.service.impl;
 
-import pl.jspiewak.service.AlbumService;
-import pl.jspiewak.domain.Album;
-import pl.jspiewak.repository.AlbumRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.jspiewak.domain.Album;
+import pl.jspiewak.repository.AlbumRepository;
+import pl.jspiewak.service.AlbumService;
 
 import java.util.List;
 import java.util.Optional;
@@ -73,5 +74,10 @@ public class AlbumServiceImpl implements AlbumService {
     public void delete(Long id) {
         log.debug("Request to delete Album : {}", id);
         albumRepository.deleteById(id);
+    }
+
+    @Override
+    public Page<Album> findAll(Pageable pageable) {
+        return albumRepository.findAll(pageable);
     }
 }

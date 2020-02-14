@@ -1,16 +1,17 @@
 package pl.jspiewak.web.rest;
 
-import pl.jspiewak.domain.Album;
-import pl.jspiewak.service.AlbumService;
-import pl.jspiewak.web.rest.errors.BadRequestAlertException;
-
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.jspiewak.domain.Album;
+import pl.jspiewak.service.AlbumService;
+import pl.jspiewak.web.rest.errors.BadRequestAlertException;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -112,5 +113,11 @@ public class AlbumResource {
         log.debug("REST request to delete Album : {}", id);
         albumService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
+    }
+
+    @GetMapping("/albums/page")
+    public Page<Album> getNewsPage(@RequestParam String page, @RequestParam String size) {
+        PageRequest pageable = PageRequest.of(Integer.parseInt(page), Integer.parseInt(size));
+        return albumService.findAll(pageable);
     }
 }

@@ -2,7 +2,7 @@
   "jaworznoApp": {
     "album": {
       "home": {
-        "title": "Album",
+        "title": "Zdjęcia",
         "createLabel": "Dodaj Album",
         "createOrEditLabel": "Dodaj lub edytuj: Album",
         "notFound": "No Albums found"
