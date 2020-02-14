@@ -26,7 +26,7 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
         },
         {
           path: 'news',
-          loadChildren: () => import('./all-news/all-news.module').then(module => module.AllNewsModule)
+          loadChildren: () => import('./news/news.module').then(module => module.NewsModule)
         },
         {
           path: 'organizer',

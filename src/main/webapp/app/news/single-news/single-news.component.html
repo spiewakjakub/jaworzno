@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex">
+                <h1 class="news-title">{{news?.title}}</h1>
+            </div>
+            <span class="line"></span>
+        </div>
+    </div>
+    <div class="row justify-content-center mb-4">
+        <img alt="news-image"
+             class="img-fluid"
+             src="data:image/jpg;base64,{{news?.picture}}"/>
+    </div>
+    <div class="row news-image-info justify-content-around mb-2">
+        <span class="news-line"></span>
+        <span class="news-date">{{news?.date | date}}</span>
+    </div>
+    <div class="row mb-2">
+        <p class="news-description">
+            {{news.description}}
+        </p>
+    </div>
+    <div class="row mb-2">
+        <p class="news-content">
+            {{news.content}}
+        </p>
+    </div>
+</div>

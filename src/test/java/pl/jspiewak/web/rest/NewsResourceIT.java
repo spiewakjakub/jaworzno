@@ -39,9 +39,6 @@ public class NewsResourceIT {
     private static final String DEFAULT_TITLE = "AAAAAAAAAA";
     private static final String UPDATED_TITLE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_CONTENT = "AAAAAAAAAA";
-    private static final String UPDATED_CONTENT = "BBBBBBBBBB";
-
     private static final Instant DEFAULT_DATE = Instant.ofEpochMilli(0L);
     private static final Instant UPDATED_DATE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
@@ -52,6 +49,9 @@ public class NewsResourceIT {
     private static final byte[] UPDATED_PICTURE = TestUtil.createByteArray(1, "1");
     private static final String DEFAULT_PICTURE_CONTENT_TYPE = "image/jpg";
     private static final String UPDATED_PICTURE_CONTENT_TYPE = "image/png";
+
+    private static final String DEFAULT_CONTENT = "AAAAAAAAAA";
+    private static final String UPDATED_CONTENT = "BBBBBBBBBB";
 
     @Autowired
     private NewsRepository newsRepository;
@@ -99,11 +99,11 @@ public class NewsResourceIT {
     public static News createEntity(EntityManager em) {
         News news = new News()
             .title(DEFAULT_TITLE)
-            .content(DEFAULT_CONTENT)
             .date(DEFAULT_DATE)
             .description(DEFAULT_DESCRIPTION)
             .picture(DEFAULT_PICTURE)
-            .pictureContentType(DEFAULT_PICTURE_CONTENT_TYPE);
+            .pictureContentType(DEFAULT_PICTURE_CONTENT_TYPE)
+            .content(DEFAULT_CONTENT);
         return news;
     }
     /**
@@ -115,11 +115,11 @@ public class NewsResourceIT {
     public static News createUpdatedEntity(EntityManager em) {
         News news = new News()
             .title(UPDATED_TITLE)
-            .content(UPDATED_CONTENT)
             .date(UPDATED_DATE)
             .description(UPDATED_DESCRIPTION)
             .picture(UPDATED_PICTURE)
-            .pictureContentType(UPDATED_PICTURE_CONTENT_TYPE);
+            .pictureContentType(UPDATED_PICTURE_CONTENT_TYPE)
+            .content(UPDATED_CONTENT);
         return news;
     }
 
@@ -144,11 +144,11 @@ public class NewsResourceIT {
         assertThat(newsList).hasSize(databaseSizeBeforeCreate + 1);
         News testNews = newsList.get(newsList.size() - 1);
         assertThat(testNews.getTitle()).isEqualTo(DEFAULT_TITLE);
-        assertThat(testNews.getContent()).isEqualTo(DEFAULT_CONTENT);
         assertThat(testNews.getDate()).isEqualTo(DEFAULT_DATE);
         assertThat(testNews.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
         assertThat(testNews.getPicture()).isEqualTo(DEFAULT_PICTURE);
         assertThat(testNews.getPictureContentType()).isEqualTo(DEFAULT_PICTURE_CONTENT_TYPE);
+        assertThat(testNews.getContent()).isEqualTo(DEFAULT_CONTENT);
     }
 
     @Test
@@ -183,11 +183,11 @@ public class NewsResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(news.getId().intValue())))
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE)))
-            .andExpect(jsonPath("$.[*].content").value(hasItem(DEFAULT_CONTENT)))
             .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION)))
             .andExpect(jsonPath("$.[*].pictureContentType").value(hasItem(DEFAULT_PICTURE_CONTENT_TYPE)))
-            .andExpect(jsonPath("$.[*].picture").value(hasItem(Base64Utils.encodeToString(DEFAULT_PICTURE))));
+            .andExpect(jsonPath("$.[*].picture").value(hasItem(Base64Utils.encodeToString(DEFAULT_PICTURE))))
+            .andExpect(jsonPath("$.[*].content").value(hasItem(DEFAULT_CONTENT.toString())));
     }
 
     @Test
@@ -202,11 +202,11 @@ public class NewsResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(news.getId().intValue()))
             .andExpect(jsonPath("$.title").value(DEFAULT_TITLE))
-            .andExpect(jsonPath("$.content").value(DEFAULT_CONTENT))
             .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION))
             .andExpect(jsonPath("$.pictureContentType").value(DEFAULT_PICTURE_CONTENT_TYPE))
-            .andExpect(jsonPath("$.picture").value(Base64Utils.encodeToString(DEFAULT_PICTURE)));
+            .andExpect(jsonPath("$.picture").value(Base64Utils.encodeToString(DEFAULT_PICTURE)))
+            .andExpect(jsonPath("$.content").value(DEFAULT_CONTENT.toString()));
     }
 
     @Test
@@ -231,11 +231,11 @@ public class NewsResourceIT {
         em.detach(updatedNews);
         updatedNews
             .title(UPDATED_TITLE)
-            .content(UPDATED_CONTENT)
             .date(UPDATED_DATE)
             .description(UPDATED_DESCRIPTION)
             .picture(UPDATED_PICTURE)
-            .pictureContentType(UPDATED_PICTURE_CONTENT_TYPE);
+            .pictureContentType(UPDATED_PICTURE_CONTENT_TYPE)
+            .content(UPDATED_CONTENT);
 
         restNewsMockMvc.perform(put("/api/news")
             .contentType(TestUtil.APPLICATION_JSON)
@@ -247,11 +247,11 @@ public class NewsResourceIT {
         assertThat(newsList).hasSize(databaseSizeBeforeUpdate);
         News testNews = newsList.get(newsList.size() - 1);
         assertThat(testNews.getTitle()).isEqualTo(UPDATED_TITLE);
-        assertThat(testNews.getContent()).isEqualTo(UPDATED_CONTENT);
         assertThat(testNews.getDate()).isEqualTo(UPDATED_DATE);
         assertThat(testNews.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
         assertThat(testNews.getPicture()).isEqualTo(UPDATED_PICTURE);
         assertThat(testNews.getPictureContentType()).isEqualTo(UPDATED_PICTURE_CONTENT_TYPE);
+        assertThat(testNews.getContent()).isEqualTo(UPDATED_CONTENT);
     }
 
     @Test

@@ -1,0 +1,22 @@
+<div class="row d-flex">
+    <div *ngFor="let news of newsArray" class="col-6 col-md-3">
+        <a [routerLink]="['/news', news.id]">
+            <jhi-preview-card
+                [date]="news.date"
+                [description]="news.description"
+                [picture]="news.picture"
+                [title]="news.title"></jhi-preview-card>
+        </a>
+    </div>
+</div>
+<div *ngIf="isPaginated"
+     class="row d-flex justify-content-center m-3">
+    <ngb-pagination (pageChange)="loadPage($event)"
+                    [(page)]="page"
+                    [boundaryLinks]="true"
+                    [collectionSize]="totalElements"
+                    [pageSize]="size"
+                    [rotate]="true">
+    </ngb-pagination>
+</div>
+

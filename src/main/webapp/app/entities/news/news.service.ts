@@ -1,12 +1,12 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
-import { SERVER_API_URL } from 'app/app.constants';
-import { INews } from 'app/shared/model/news.model';
-import { createRequestOption } from 'app/shared/util/request-util';
-import * as moment from 'moment';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import * as moment from 'moment';
+
+import { SERVER_API_URL } from 'app/app.constants';
+import { createRequestOption } from 'app/shared/util/request-util';
+import { INews } from 'app/shared/model/news.model';
 
 type EntityResponseType = HttpResponse<INews>;
 type EntityArrayResponseType = HttpResponse<INews[]>;
@@ -31,7 +31,7 @@ export class NewsService {
       .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
   }
 
-  find(id: number): Observable<EntityResponseType> {
+  find(id: string): Observable<EntityResponseType> {
     return this.http
       .get<INews>(`${this.resourceUrl}/${id}`, { observe: 'response' })
       .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));

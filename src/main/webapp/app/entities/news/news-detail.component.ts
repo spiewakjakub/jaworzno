@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { JhiDataUtils } from 'ng-jhipster';
 
 import { INews } from 'app/shared/model/news.model';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'jhi-news-detail',
@@ -11,10 +12,15 @@ import { INews } from 'app/shared/model/news.model';
 export class NewsDetailComponent implements OnInit {
   news: INews | null = null;
 
-  constructor(protected dataUtils: JhiDataUtils, protected activatedRoute: ActivatedRoute) {}
+  constructor(protected dataUtils: JhiDataUtils, protected activatedRoute: ActivatedRoute, private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
-    this.activatedRoute.data.subscribe(({ news }) => (this.news = news));
+    this.activatedRoute.data.subscribe(({ news }) => {
+      this.news = news;
+      if (this.news) {
+        this.news.content = this.sanitizer.bypassSecurityTrustHtml(news.content);
+      }
+    });
   }
 
   byteSize(base64String: string): string {
@@ -27,5 +33,9 @@ export class NewsDetailComponent implements OnInit {
 
   previousState(): void {
     window.history.back();
+  }
+
+  transformHtml(htmlWithStyle: any): any {
+    return this.sanitizer.bypassSecurityTrustHtml(htmlWithStyle);
   }
 }
