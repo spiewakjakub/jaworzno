@@ -1,6 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -11,6 +10,8 @@ import { JhiDataUtils, JhiEventManager, JhiEventWithContent, JhiFileLoadError } 
 import { INews, News } from 'app/shared/model/news.model';
 import { NewsService } from './news.service';
 import { AlertError } from 'app/shared/alert/alert-error.model';
+// @ts-ignore
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'jhi-news-update',
@@ -19,14 +20,16 @@ import { AlertError } from 'app/shared/alert/alert-error.model';
 export class NewsUpdateComponent implements OnInit {
   isSaving = false;
 
+  editor = ClassicEditor;
+
   editForm = this.fb.group({
     id: [],
     title: [],
-    content: [],
     date: [],
     description: [],
     picture: [null, [Validators.required]],
-    pictureContentType: []
+    pictureContentType: [],
+    content: []
   });
 
   constructor(
@@ -53,11 +56,11 @@ export class NewsUpdateComponent implements OnInit {
     this.editForm.patchValue({
       id: news.id,
       title: news.title,
-      content: news.content,
       date: news.date ? news.date.format(DATE_TIME_FORMAT) : null,
       description: news.description,
       picture: news.picture,
-      pictureContentType: news.pictureContentType
+      pictureContentType: news.pictureContentType,
+      content: news.content
     });
   }
 
@@ -106,11 +109,11 @@ export class NewsUpdateComponent implements OnInit {
       ...new News(),
       id: this.editForm.get(['id'])!.value,
       title: this.editForm.get(['title'])!.value,
-      content: this.editForm.get(['content'])!.value,
       date: this.editForm.get(['date'])!.value ? moment(this.editForm.get(['date'])!.value, DATE_TIME_FORMAT) : undefined,
       description: this.editForm.get(['description'])!.value,
       pictureContentType: this.editForm.get(['pictureContentType'])!.value,
-      picture: this.editForm.get(['picture'])!.value
+      picture: this.editForm.get(['picture'])!.value,
+      content: this.editForm.get(['content'])!.value
     };
   }
 
