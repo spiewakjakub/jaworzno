@@ -116,7 +116,7 @@ public class NewsResource {
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 
-    @GetMapping("/newses")
+    @GetMapping("/news/page")
     public Page<News> getNewsPage(@RequestParam String page, @RequestParam String size) {
         PageRequest pageable = PageRequest.of(Integer.parseInt(page), Integer.parseInt(size));
         return newsService.findAll(pageable);

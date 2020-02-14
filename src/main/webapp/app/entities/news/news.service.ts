@@ -49,7 +49,7 @@ export class NewsService {
   }
 
   getPage(page: number, size: number): Observable<HttpResponse<any>> {
-    return this.http.get<INews[]>(SERVER_API_URL + '/api/newses', {
+    return this.http.get<INews[]>(SERVER_API_URL + '/api/news/page', {
       params: {
         page: page.toString(),
         size: size.toString()

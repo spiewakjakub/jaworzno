@@ -38,7 +38,7 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
         },
         {
           path: 'pictures',
-          loadChildren: () => import('./pictures/pictures.module').then(module => module.PicturesModule)
+          loadChildren: () => import('./albums/albums.module').then(module => module.AlbumsModule)
         },
         {
           path: 'videos',
