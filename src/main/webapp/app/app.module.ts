@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AllNewsModule } from 'app/all-news/all-news.module';
 import { JaworznoCoreModule } from 'app/core/core.module';
+import { NewsModule } from 'app/news/news.module';
 import { OrganizerModule } from 'app/organizer/organizer.module';
 import { PicturesModule } from 'app/pictures/pictures.module';
 import { PreviousModule } from 'app/previous/previous.module';
@@ -31,7 +31,7 @@ import './vendor';
     // jhipster-needle-angular-add-module JHipster will add new module here
     JaworznoEntityModule,
     JaworznoAppRoutingModule,
-    AllNewsModule,
+    NewsModule,
     OrganizerModule,
     VoluntaryModule,
     PicturesModule,

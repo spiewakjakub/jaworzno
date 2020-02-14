@@ -10,6 +10,7 @@ import { VideoComponent } from 'app/shared/video/video.component';
 import { SingleNewsPreviewComponent } from 'app/shared/single-news-preview/single-news-preview.component';
 import { PreviewCardComponent } from 'app/shared/preview-card/preview-card.component';
 import { TitleComponent } from 'app/shared/title/title.component';
+import { NewsListComponent } from 'app/shared/news-list/news-list.component';
 
 @NgModule({
   imports: [JaworznoSharedLibsModule],
@@ -23,7 +24,8 @@ import { TitleComponent } from 'app/shared/title/title.component';
     VideoComponent,
     SingleNewsPreviewComponent,
     PreviewCardComponent,
-    TitleComponent
+    TitleComponent,
+    NewsListComponent
   ],
   entryComponents: [LoginModalComponent],
   exports: [
@@ -37,7 +39,8 @@ import { TitleComponent } from 'app/shared/title/title.component';
     SingleNewsPreviewComponent,
     VideoComponent,
     PreviewCardComponent,
-    TitleComponent
+    TitleComponent,
+    NewsListComponent
   ]
 })
 export class JaworznoSharedModule {}

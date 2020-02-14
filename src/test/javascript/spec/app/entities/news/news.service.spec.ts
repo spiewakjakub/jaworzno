@@ -36,7 +36,7 @@ describe('Service Tests', () => {
           elemDefault
         );
 
-        service.find(123).subscribe(resp => (expectedResult = resp.body));
+        service.find('123').subscribe(resp => (expectedResult = resp.body));
 
         const req = httpMock.expectOne({ method: 'GET' });
         req.flush(returnedFromService);
