@@ -2,6 +2,8 @@ package pl.jspiewak.domain;
 
 import org.hibernate.annotations.Type;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
@@ -31,6 +33,7 @@ public class News implements Serializable {
 
 
     @Lob
+    @Type(type = "byte[]")
     @Column(name = "picture", nullable = false)
     private byte[] picture;
 

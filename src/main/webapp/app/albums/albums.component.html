@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container mt-3">
     <div class="row">
         <div class="col-12 news-header">
             <div class="d-flex">
-                <h1 jhiTranslate="jaworznoApp.album.home.title">News</h1>
+                <h1 jhiTranslate="jaworznoApp.album.home.title">Photos</h1>
             </div>
             <span class="news-line"></span>
         </div>
@@ -11,7 +11,7 @@
 
     <div class="row d-flex">
         <div *ngFor="let album of albums" class="col-6 col-md-3">
-            <a [routerLink]="['/album', album.id]">
+            <a [routerLink]="['/pictures', album.id]">
                 <div *ngIf="album.pictures && album.pictures.length > 0">
                     <jhi-preview-card
                         [picture]="album.pictures[0].data"

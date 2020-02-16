@@ -20,7 +20,6 @@
       }
     ],
     "@typescript-eslint/no-non-null-assertion": "off",
-    //TODO figure out other way to suppress warning
-    "@typescript-eslint/ban-ts-ignore": "off"
+    "@typescript-eslint/ban-ts-ignore": "warn"
   }
 }
