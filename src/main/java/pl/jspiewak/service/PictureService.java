@@ -1,5 +1,7 @@
 package pl.jspiewak.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import pl.jspiewak.domain.Picture;
 
 import java.util.List;
@@ -39,4 +41,6 @@ public interface PictureService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    Page<Picture> getPageByAlbumId(Long id, Pageable pageable);
 }

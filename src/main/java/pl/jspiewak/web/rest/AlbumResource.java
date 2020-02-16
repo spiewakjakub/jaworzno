@@ -5,7 +5,6 @@ import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -116,8 +115,9 @@ public class AlbumResource {
     }
 
     @GetMapping("/albums/page")
-    public Page<Album> getNewsPage(@RequestParam String page, @RequestParam String size) {
+    public List<Album> getAlbumsPage(@RequestParam String page, @RequestParam String size) {
+        log.debug("REST request to get Albums page: {}", page);
         PageRequest pageable = PageRequest.of(Integer.parseInt(page), Integer.parseInt(size));
-        return albumService.findAll(pageable);
+        return albumService.getAllWithFirstPicture(pageable);
     }
 }

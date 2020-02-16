@@ -11,4 +11,6 @@ export class PreviewCardComponent {
   @Input() title?: string;
   @Input() date?: Moment;
   @Input() description?: string;
+  @Input() id?: number;
+  @Input() router?: string;
 }

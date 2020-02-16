@@ -10,8 +10,6 @@ import { JhiDataUtils, JhiEventManager, JhiEventWithContent, JhiFileLoadError } 
 import { INews, News } from 'app/shared/model/news.model';
 import { NewsService } from './news.service';
 import { AlertError } from 'app/shared/alert/alert-error.model';
-// @ts-ignore
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'jhi-news-update',
@@ -20,7 +18,7 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 export class NewsUpdateComponent implements OnInit {
   isSaving = false;
 
-  editor = ClassicEditor;
+  editor = require('@ckeditor/ckeditor5-build-classic');
 
   editForm = this.fb.group({
     id: [],

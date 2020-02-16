@@ -43,4 +43,6 @@ public interface AlbumService {
     void delete(Long id);
 
     Page<Album> findAll(Pageable pageable);
+
+    List<Album> getAllWithFirstPicture(Pageable pageable);
 }

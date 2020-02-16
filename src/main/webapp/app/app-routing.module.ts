@@ -37,7 +37,7 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
           loadChildren: () => import('./voluntary/voluntary.module').then(module => module.VoluntaryModule)
         },
         {
-          path: 'pictures',
+          path: 'albums',
           loadChildren: () => import('./albums/albums.module').then(module => module.AlbumsModule)
         },
         {

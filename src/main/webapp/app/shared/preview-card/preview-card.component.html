@@ -2,7 +2,8 @@
     <figure class="image-wrapper">
         <img alt="{{title}}"
              class="img-fluid w-100 active-img"
-             src="data:image/jpg;base64,{{picture}}"/>
+             src="data:image/jpg;base64,{{picture}}"
+             [routerLink]="router"/>
         <figcaption class="image-info">
             <span class="line"></span>
             <span *ngIf="date" class="date">{{date | date}}</span>
