@@ -216,3 +216,19 @@ img.active-img {
   margin: 0 0;
   padding: 0 0;
 }
+
+.page-title-line {
+  border-bottom: 1px solid rgba(81, 81, 81, 0.2);
+  display: block;
+  margin-bottom: 3vh;
+}
+
+.page-title-line:before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 4px;
+  background-color: $primary;
+  position: relative;
+  top: 1px;
+}

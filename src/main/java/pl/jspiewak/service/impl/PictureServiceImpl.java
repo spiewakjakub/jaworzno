@@ -1,13 +1,14 @@
 package pl.jspiewak.service.impl;
 
-import pl.jspiewak.service.PictureService;
-import pl.jspiewak.domain.Picture;
-import pl.jspiewak.repository.PictureRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.jspiewak.domain.Picture;
+import pl.jspiewak.repository.PictureRepository;
+import pl.jspiewak.service.PictureService;
 
 import java.util.List;
 import java.util.Optional;
@@ -73,5 +74,11 @@ public class PictureServiceImpl implements PictureService {
     public void delete(Long id) {
         log.debug("Request to delete Picture : {}", id);
         pictureRepository.deleteById(id);
+    }
+
+    @Override
+    public Page<Picture> getPageByAlbumId(Long id, Pageable pageable) {
+        log.debug("Request to get page : {} of album id : {}", pageable.getPageNumber(), id);
+        return pictureRepository.findAllByAlbum_Id(id, pageable);
     }
 }

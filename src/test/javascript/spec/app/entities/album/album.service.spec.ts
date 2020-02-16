@@ -1,7 +1,7 @@
-import { TestBed, getTestBed } from '@angular/core/testing';
+import { getTestBed, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { AlbumService } from 'app/entities/album/album.service';
-import { IAlbum, Album } from 'app/shared/model/album.model';
+import { Album, IAlbum } from 'app/shared/model/album.model';
 
 describe('Service Tests', () => {
   describe('Album Service', () => {
@@ -27,7 +27,7 @@ describe('Service Tests', () => {
       it('should find an element', () => {
         const returnedFromService = Object.assign({}, elemDefault);
 
-        service.find(123).subscribe(resp => (expectedResult = resp.body));
+        service.find('123').subscribe(resp => (expectedResult = resp.body));
 
         const req = httpMock.expectOne({ method: 'GET' });
         req.flush(returnedFromService);
