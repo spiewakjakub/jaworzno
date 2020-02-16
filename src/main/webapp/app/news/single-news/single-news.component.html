@@ -22,8 +22,6 @@
         </p>
     </div>
     <div class="row mb-2">
-        <p class="news-content">
-            {{news.content}}
-        </p>
+        <div class="news-content" [innerHTML]="news.content"></div>
     </div>
 </div>

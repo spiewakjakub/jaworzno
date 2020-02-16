@@ -22,5 +22,8 @@
       "picture": "Picture",
       "content": "Content"
     }
+  },
+  "news": {
+    "title": "Aktualności"
   }
 }

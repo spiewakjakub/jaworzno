@@ -6,7 +6,8 @@
         <jhi-preview-card
             [description]="album?.title"
             [picture]="album?.pictures[0]?.data"
-            [title]="album?.title">
+            [title]="album?.title"
+            [router]="'pictures/' + album.id">
         </jhi-preview-card>
     </div>
     <div *ngIf="album" class="col-6 col-md-3 order-md-last mt-2 gallery-column">

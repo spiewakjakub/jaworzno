@@ -1,6 +1,8 @@
 package pl.jspiewak.domain;
 
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 
 import java.io.Serializable;
@@ -20,6 +22,7 @@ public class Poster implements Serializable {
     private Long id;
 
     @Lob
+    @Type(type = "byte[]")
     @Column(name = "data")
     private byte[] data;
 
