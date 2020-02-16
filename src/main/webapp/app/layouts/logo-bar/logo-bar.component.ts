@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Sponsor } from 'app/shared/model/sponsor.model';
+import { SponsorService } from 'app/entities/sponsor/sponsor.service';
 
 @Component({
   selector: 'jhi-logo-bar',
@@ -6,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./logo-bar.component.scss']
 })
 export class LogoBarComponent implements OnInit {
-  constructor() {}
+  sponsors?: Sponsor[];
 
-  ngOnInit(): void {}
+  constructor(private sponsorService: SponsorService) {}
+
+  ngOnInit(): void {
+    this.sponsorService.query().subscribe(sponsorsResponse => {
+      this.sponsors = sponsorsResponse.body as Sponsor[];
+    });
+  }
 }
