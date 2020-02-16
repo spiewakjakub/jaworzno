@@ -23,7 +23,7 @@ export class AlbumService {
     return this.http.put<IAlbum>(this.resourceUrl, album, { observe: 'response' });
   }
 
-  find(id: number): Observable<EntityResponseType> {
+  find(id: string): Observable<EntityResponseType> {
     return this.http.get<IAlbum>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 

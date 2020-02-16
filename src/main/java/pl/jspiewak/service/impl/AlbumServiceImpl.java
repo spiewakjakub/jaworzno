@@ -1,17 +1,23 @@
 package pl.jspiewak.service.impl;
 
+import pl.jspiewak.service.AlbumService;
+import pl.jspiewak.domain.Album;
+import pl.jspiewak.repository.AlbumRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 import pl.jspiewak.domain.Album;
 import pl.jspiewak.repository.AlbumRepository;
 import pl.jspiewak.service.AlbumService;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Service Implementation for managing {@link Album}.
@@ -79,5 +85,15 @@ public class AlbumServiceImpl implements AlbumService {
     @Override
     public Page<Album> findAll(Pageable pageable) {
         return albumRepository.findAll(pageable);
+    }
+
+    @Override
+    public List<Album> getAllWithFirstPicture(Pageable pageable) {
+        return albumRepository
+            .findAll(pageable)
+            .stream()
+            .filter(album -> !CollectionUtils.isEmpty(album.getPictures()))
+            .peek(album -> album.setPictures(Set.of(album.getPictures().iterator().next())))
+            .collect(Collectors.toList());
     }
 }

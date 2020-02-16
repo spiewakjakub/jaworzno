@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlbumService } from 'app/entities/album/album.service';
 import { IAlbum } from 'app/shared/model/album.model';
+import { AlbumTitleService } from 'app/albums/album-title.service';
 
 @Component({
   selector: 'jhi-albums',
@@ -14,28 +15,31 @@ export class AlbumsComponent implements OnInit {
   totalPages = 0;
   private albums?: IAlbum[] | null;
 
-  constructor(private albumService: AlbumService) {}
+  constructor(private albumService: AlbumService, private albumTitleService: AlbumTitleService) {}
 
   ngOnInit(): void {
-    this.albumService.query().subscribe(
-      response => {
-        this.albums = response.body;
-      },
-      error => console.error(error)
-    );
+    this.loadPage(1);
   }
 
   loadPage($event: number): void {
     this.page = $event - 1;
     this.albumService.getPage(this.page, this.size).subscribe(
       response => {
-        this.totalElements = response.body.totalElements;
-        this.albums = response.body.content;
-        this.totalPages = response.body.totalPages;
+        if (response.body) {
+          // eslint-disable-next-line no-console
+          console.log(response.body);
+          this.totalElements = response.body.length;
+          this.albums = response.body;
+          this.totalPages = Math.ceil(response.body.length / this.size);
+        }
       },
       error => {
         console.error(error);
       }
     );
+  }
+
+  passAlbumTitle(title: string): void {
+    this.albumTitleService.title = title;
   }
 }

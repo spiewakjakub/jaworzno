@@ -35,4 +35,14 @@ export class PictureService {
   delete(id: number): Observable<HttpResponse<{}>> {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
+
+  findByAlbumId(id: string, page: number, size: number): Observable<any> {
+    return this.http.get<IPicture[]>(`${SERVER_API_URL}/api/albums/${id}/pictures`, {
+      params: {
+        page: page.toString(),
+        size: size.toString()
+      },
+      observe: 'response'
+    });
+  }
 }
