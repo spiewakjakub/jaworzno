@@ -1,8 +1,7 @@
 <div class="d-flex flex-row justify-content-between">
     <div class="float-left main-logo-row">
         <a routerLink="/">
-            <img alt="jaworzno"
-                 src="https://logomaster.ai/static/media/gallery002.936afb9d.png">
+            <img src="data:image/jpg;base64,{{sponsors[1]?.logo}}" alt="logo">
         </a>
     </div>
     <div>
@@ -10,18 +9,9 @@
     </div>
 </div>
 
-<div class="sponsors-logo-row d-flex flex-row justify-content-around">
-    <div>
-        <img src="https://www.nn.pl/.resources/nn-module/webresources/dist/images/logo.png" alt="logo-1">
-    </div>
-    <div>
-        <img src="https://www.nn.pl/.resources/nn-module/webresources/dist/images/logo.png" alt="logo-2">
-    </div>
-    <div>
-        <img src="https://www.nn.pl/.resources/nn-module/webresources/dist/images/logo.png" alt="logo-3">
-    </div>
-    <div>
-        <img src="https://www.nn.pl/.resources/nn-module/webresources/dist/images/logo.png" alt="logo-4">
+<div class="sponsors-logo-row d-flex flex-row justify-content-between">
+    <div class="w-100" *ngFor="let sponsor of sponsors">
+        <img src="data:image/jpg;base64,{{sponsor.logo}}" alt="logo">
     </div>
 </div>
 
