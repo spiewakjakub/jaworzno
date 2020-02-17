@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <databaseChangeLog
     xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
-                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
 
-    
+
     <!--
         Added the entity Album.
     -->
@@ -16,7 +14,16 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="title" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="true"/>
+            </column>
+            <column name="date" type="datetime">
+                <constraints nullable="true"/>
+            </column>
+            <column name="main_picture" type="longblob">
+                <constraints nullable="false"/>
+            </column>
+            <column name="main_picture_content_type" type="varchar(255)">
+                <constraints nullable="false"/>
             </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
@@ -37,11 +44,14 @@
     -->
     <changeSet id="20200207172100-1-data" author="jhipster" context="faker">
         <loadData
-                  file="config/liquibase/fake-data/album.csv"
-                  separator=";"
-                  tableName="album">
+            file="config/liquibase/fake-data/album.csv"
+            separator=";"
+            tableName="album">
             <column name="id" type="numeric"/>
             <column name="title" type="string"/>
+            <column name="date" type="datetime"/>
+            <column name="main_picture" type="blob"/>
+            <column name="main_picture_content_type" type="string"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here, do not remove-->
         </loadData>
     </changeSet>

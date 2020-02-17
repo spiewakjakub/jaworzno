@@ -12,6 +12,22 @@
                 <dd>
                     <span>{{ album.title }}</span>
                 </dd>
+                <dt><span jhiTranslate="jaworznoApp.album.date">Date</span></dt>
+                <dd>
+                    <span>{{ album.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="jaworznoApp.album.mainPicture">MainPicture</span></dt>
+                <dd>
+                    <div *ngIf="album.mainPicture">
+                        <a (click)="openFile(album.mainPictureContentType, album.mainPicture)"
+                           *ngIf="album.mainPicture">
+                            <img [src]="'data:' + album.mainPictureContentType + ';base64,' + album.mainPicture"
+                                 alt="album main picture"
+                                 style="max-height: 30px;"/>
+                        </a>
+                        {{ album.mainPictureContentType }}, {{ byteSize(album.mainPicture) }}
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

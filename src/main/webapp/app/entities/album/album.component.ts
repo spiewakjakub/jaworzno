@@ -1,12 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
-import { Subscription } from 'rxjs';
-import { JhiEventManager } from 'ng-jhipster';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { IAlbum } from 'app/shared/model/album.model';
-import { AlbumService } from './album.service';
+import { JhiDataUtils, JhiEventManager } from 'ng-jhipster';
+import { Subscription } from 'rxjs';
 import { AlbumDeleteDialogComponent } from './album-delete-dialog.component';
+import { AlbumService } from './album.service';
 
 @Component({
   selector: 'jhi-album',
@@ -16,7 +16,12 @@ export class AlbumComponent implements OnInit, OnDestroy {
   albums?: IAlbum[];
   eventSubscriber?: Subscription;
 
-  constructor(protected albumService: AlbumService, protected eventManager: JhiEventManager, protected modalService: NgbModal) {}
+  constructor(
+    protected albumService: AlbumService,
+    protected eventManager: JhiEventManager,
+    protected modalService: NgbModal,
+    protected dataUtils: JhiDataUtils
+  ) {}
 
   loadAll(): void {
     this.albumService.query().subscribe((res: HttpResponse<IAlbum[]>) => (this.albums = res.body || []));
@@ -45,5 +50,13 @@ export class AlbumComponent implements OnInit, OnDestroy {
   delete(album: IAlbum): void {
     const modalRef = this.modalService.open(AlbumDeleteDialogComponent, { size: 'lg', backdrop: 'static' });
     modalRef.componentInstance.album = album;
+  }
+
+  openFile(contentType: string, base64String: string): void {
+    return this.dataUtils.openFile(contentType, base64String);
+  }
+
+  byteSize(base64String: string): string {
+    return this.dataUtils.byteSize(base64String);
   }
 }
