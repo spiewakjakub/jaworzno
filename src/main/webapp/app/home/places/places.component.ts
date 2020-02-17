@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Place } from 'app/shared/model/place.model';
+import { PlaceService } from 'app/entities/place/place.service';
 
 @Component({
   selector: 'jhi-places',
@@ -7,27 +8,13 @@ import { Place } from 'app/shared/model/place.model';
   styleUrls: ['./places.component.scss']
 })
 export class PlacesComponent implements OnInit {
-  moment = require('moment');
-  places: Place[] = [
-    {
-      name: 'Chicago',
-      date: this.moment('01-12-2012', 'DD-MM-YYYY')
-    },
-    {
-      name: 'New York',
-      date: this.moment('21-02-2014', 'DD-MM-YYYY')
-    },
-    {
-      name: 'Washington DC',
-      date: this.moment('07-09-2016', 'DD-MM-YYYY')
-    },
-    {
-      name: 'Los Angeles',
-      date: this.moment('23-11-2020', 'DD-MM-YYYY')
-    }
-  ];
+  places?: Place[];
 
-  constructor() {}
+  constructor(private placeService: PlaceService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.placeService.getFour().subscribe(places => {
+      this.places = places.body as Place[];
+    });
+  }
 }

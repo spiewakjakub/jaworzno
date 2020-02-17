@@ -1,5 +1,9 @@
 package pl.jspiewak.service.impl;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import pl.jspiewak.domain.Album;
 import pl.jspiewak.service.PlaceService;
 import pl.jspiewak.domain.Place;
 import pl.jspiewak.repository.PlaceRepository;
@@ -11,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * Service Implementation for managing {@link Place}.
@@ -73,5 +78,10 @@ public class PlaceServiceImpl implements PlaceService {
     public void delete(Long id) {
         log.debug("Request to delete Place : {}", id);
         placeRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Place> getByPage(PageRequest pageRequest) {
+        return placeRepository.findAll(pageRequest).stream().collect(Collectors.toList());
     }
 }

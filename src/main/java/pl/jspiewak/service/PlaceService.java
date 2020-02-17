@@ -1,5 +1,7 @@
 package pl.jspiewak.service;
 
+import org.springframework.data.domain.PageRequest;
+import pl.jspiewak.domain.Album;
 import pl.jspiewak.domain.Place;
 
 import java.util.List;
@@ -39,4 +41,6 @@ public interface PlaceService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    List<Place> getByPage(PageRequest pageRequest);
 }

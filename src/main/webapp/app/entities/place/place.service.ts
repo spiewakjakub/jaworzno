@@ -70,4 +70,11 @@ export class PlaceService {
     }
     return res;
   }
+
+  getFour(): Observable<EntityArrayResponseType> {
+    const options = createRequestOption({ page: 0, size: 4 });
+    return this.http
+      .get<IPlace[]>(`${this.resourceUrl}/page`, { params: options, observe: 'response' })
+      .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
+  }
 }
