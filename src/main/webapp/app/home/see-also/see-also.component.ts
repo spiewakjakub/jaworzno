@@ -8,7 +8,7 @@ import { Album } from 'app/shared/model/album.model';
   styleUrls: ['./see-also.component.scss']
 })
 export class SeeAlsoComponent implements OnInit {
-  album?: Album;
+  private album?: Album;
 
   constructor(private albumService: AlbumService) {}
 

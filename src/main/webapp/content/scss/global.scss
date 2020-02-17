@@ -208,7 +208,7 @@ img.active-img {
   &:hover {
     cursor: pointer;
     filter: brightness(70%);
-    box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px 5px $dark;
   }
 }
 
@@ -218,7 +218,7 @@ img.active-img {
 }
 
 .page-title-line {
-  border-bottom: 1px solid rgba(81, 81, 81, 0.2);
+  border-bottom: 1px solid $secondary;
   display: block;
   margin-bottom: 3vh;
 }

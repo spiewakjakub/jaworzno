@@ -1,5 +1,7 @@
 package pl.jspiewak.web.rest;
 
+import org.springframework.data.domain.PageRequest;
+import pl.jspiewak.domain.Album;
 import pl.jspiewak.domain.Place;
 import pl.jspiewak.service.PlaceService;
 import pl.jspiewak.web.rest.errors.BadRequestAlertException;
@@ -112,5 +114,12 @@ public class PlaceResource {
         log.debug("REST request to delete Place : {}", id);
         placeService.delete(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
+    }
+
+    @GetMapping("/places/page")
+    public List<Place> getAlbumsPage(@RequestParam String page, @RequestParam String size) {
+        log.debug("REST request to get Places with page: {} and size: {}", page, size);
+        PageRequest pageRequest = PageRequest.of(Integer.parseInt(page), Integer.parseInt(size));
+        return placeService.getByPage(pageRequest);
     }
 }

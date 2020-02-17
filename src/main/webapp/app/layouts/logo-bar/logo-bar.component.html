@@ -1,17 +1,26 @@
-<div class="d-flex flex-row justify-content-between">
-    <div class="float-left main-logo-row">
-        <a routerLink="/">
-            <img src="data:image/jpg;base64,{{sponsors[1]?.logo}}" alt="logo">
-        </a>
-    </div>
-    <div>
-        <jhi-social-media></jhi-social-media>
-    </div>
-</div>
+<div class="row">
 
-<div class="sponsors-logo-row d-flex flex-row justify-content-between">
-    <div class="w-100" *ngFor="let sponsor of sponsors">
-        <img src="data:image/jpg;base64,{{sponsor.logo}}" alt="logo">
+    <div class="col-4">
+        <div class="float-left main-logo-row">
+            <a routerLink="/"><img src="/api/util/logo" alt="logo"></a>
+        </div>
     </div>
-</div>
 
+    <div class="col-8 mb-2">
+        <div class="row">
+            <div class="col">
+                <jhi-social-media class="d-flex float-right"></jhi-social-media>
+            </div>
+        </div>
+        <div class="row h-75">
+            <div class="col mt-auto">
+                <div class="sponsors-logo-row d-flex justify-content-end mt-auto mb-3">
+                    <a class="h-100 mr-3 sponsor-item" *ngFor="let sponsor of sponsors" [href]="sponsor.link">
+                        <img src="data:image/jpg;base64,{{sponsor.logo}}" alt="logo">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
