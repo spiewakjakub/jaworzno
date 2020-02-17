@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AlbumTitleService } from 'app/albums/album-title.service';
 import { AlbumService } from 'app/entities/album/album.service';
 import { IAlbum } from 'app/shared/model/album.model';
-import { AlbumTitleService } from 'app/albums/album-title.service';
 
 @Component({
   selector: 'jhi-albums',
@@ -26,8 +26,6 @@ export class AlbumsComponent implements OnInit {
     this.albumService.getPage(this.page, this.size).subscribe(
       response => {
         if (response.body) {
-          // eslint-disable-next-line no-console
-          console.log(response.body);
           this.totalElements = response.body.length;
           this.albums = response.body;
           this.totalPages = Math.ceil(response.body.length / this.size);

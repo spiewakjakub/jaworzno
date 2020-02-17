@@ -1,9 +1,11 @@
 package pl.jspiewak.domain;
 
 
-import javax.persistence.*;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,6 +25,17 @@ public class Album implements Serializable {
 
     @Column(name = "title")
     private String title;
+
+    @Column(name = "date")
+    private Instant date;
+
+    @Lob
+    @Type(type = "byte[]")
+    @Column(name = "main_picture", nullable = false)
+    private byte[] mainPicture;
+
+    @Column(name = "main_picture_content_type", nullable = false)
+    private String mainPictureContentType;
 
     @OneToMany(mappedBy = "album", fetch = FetchType.EAGER)
     private Set<Picture> pictures = new HashSet<>();
@@ -47,6 +60,45 @@ public class Album implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public Instant getDate() {
+        return date;
+    }
+
+    public void setDate(Instant date) {
+        this.date = date;
+    }
+
+    public Album date(Instant date) {
+        this.date = date;
+        return this;
+    }
+
+    public byte[] getMainPicture() {
+        return mainPicture;
+    }
+
+    public void setMainPicture(byte[] mainPicture) {
+        this.mainPicture = mainPicture;
+    }
+
+    public Album mainPicture(byte[] mainPicture) {
+        this.mainPicture = mainPicture;
+        return this;
+    }
+
+    public String getMainPictureContentType() {
+        return mainPictureContentType;
+    }
+
+    public void setMainPictureContentType(String mainPictureContentType) {
+        this.mainPictureContentType = mainPictureContentType;
+    }
+
+    public Album mainPictureContentType(String mainPictureContentType) {
+        this.mainPictureContentType = mainPictureContentType;
+        return this;
     }
 
     public Set<Picture> getPictures() {

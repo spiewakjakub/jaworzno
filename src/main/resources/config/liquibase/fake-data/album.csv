@@ -1,11 +1,11 @@
-id;title
-1;back up
-2;Generic Plastic Sausages functionalities Wooden
-3;Branding indexing National
-4;generate flexibility pixel
-5;Island multimedia
-6;mint green plum
-7;Diverse forecast Cambridgeshire
-8;microchip website
-9;Motorway
-10;impactful
+id;title;date;main_picture;main_picture_content_type
+1;back up;2020-02-06T23:06:29;../fake-data/blob/picture1.jpg;image/jpg
+2;Generic Plastic Sausages functionalities Wooden;2020-02-06T23:06:29;../fake-data/blob/picture2.jpg;image/jpg
+3;Branding indexing National;2020-02-06T23:06:29;../fake-data/blob/picture3.jpg;image/jpg
+4;generate flexibility pixel;2020-02-06T23:06:29;../fake-data/blob/picture4.jpg;image/jpg
+5;Island multimedia;2020-02-06T23:06:29;../fake-data/blob/picture5.jpg;image/jpg
+6;mint green plum;2020-02-06T23:06:29;../fake-data/blob/picture6.jpg;image/jpg
+7;Diverse forecast Cambridgeshire;2020-02-06T23:06:29;../fake-data/blob/poster.jpg;image/jpg
+8;microchip website;2020-02-06T23:06:29;../fake-data/blob/poster.jpg;image/jpg
+9;Motorway;2020-02-06T23:06:29;../fake-data/blob/poster.jpg;image/jpg
+10;impactful;2020-02-06T23:06:29;../fake-data/blob/poster.jpg;image/jpg

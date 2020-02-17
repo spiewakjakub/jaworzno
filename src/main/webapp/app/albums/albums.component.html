@@ -13,7 +13,8 @@
         <div *ngFor="let album of albums" class="col-6 col-md-3">
             <a [routerLink]="['/albums', album.id]">
                 <jhi-preview-card
-                    [picture]="album.pictures[0].data"
+                    [date]="album.date"
+                    [picture]="album.mainPicture"
                     (click)="passAlbumTitle(album.title)"
                     [title]="album.title"></jhi-preview-card>
             </a>
