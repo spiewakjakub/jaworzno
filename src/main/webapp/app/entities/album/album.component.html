@@ -23,13 +23,14 @@
     <div class="table-responsive" id="entities" *ngIf="albums?.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
-                <tr>
-                    <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col"><span jhiTranslate="jaworznoApp.album.title">Title</span></th>
-                    <th scope="col"><span jhiTranslate="jaworznoApp.album.date">Date</span></th>
-                    <th scope="col"><span jhiTranslate="jaworznoApp.album.mainPicture">Main Picture</span></th>
-                    <th scope="col"></th>
-                </tr>
+            <tr>
+                <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+                <th scope="col"><span jhiTranslate="jaworznoApp.album.title">Title</span></th>
+                <th scope="col"><span jhiTranslate="jaworznoApp.album.date">Date</span></th>
+                <th scope="col"><span jhiTranslate="jaworznoApp.album.mainPicture">Main Picture</span></th>
+                <th scope="col"><span jhiTranslate="jaworznoApp.album.pictures">Pictures</span></th>
+                <th scope="col"></th>
+            </tr>
             </thead>
             <tbody>
             <tr *ngFor="let album of albums ;trackBy: trackId">
@@ -46,6 +47,15 @@
                     <span *ngIf="album.mainPicture">{{ album.mainPictureContentType }}
                         , {{ byteSize(album.mainPicture) }}</span>
                 </td>
+                <td>
+                    <div *ngFor="let picture of album.pictures" class="wrapper d-inline-flex mx-1">
+                        <a (click)="openFile(picture.dataContentType, picture.data)">
+                            <img [src]="'data:' + picture.dataContentType + ';base64,' + picture.data"
+                                 alt="album picture"
+                                 style="max-height: 50px;"/>
+                        </a>
+                    </div>
+                </td>
                 <td class="text-right">
                     <div class="btn-group">
                         <button type="submit"
@@ -57,20 +67,20 @@
                         </button>
 
                         <button type="submit"
-                                    [routerLink]="['/admin/album', album.id, 'edit']"
-                                    class="btn btn-primary btn-sm">
-                                <fa-icon icon="pencil-alt"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
-                            </button>
+                                [routerLink]="['/admin/album', album.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon icon="pencil-alt"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
 
-                            <button type="submit" (click)="delete(album)"
-                                    class="btn btn-danger btn-sm">
-                                <fa-icon icon="times"></fa-icon>
-                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
-                            </button>
-                        </div>
-                    </td>
-                </tr>
+                        <button (click)="delete(album)" class="btn btn-danger btn-sm"
+                                type="submit">
+                            <fa-icon icon="times"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>
