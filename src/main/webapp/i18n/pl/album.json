@@ -19,7 +19,8 @@
       "title": "Title",
       "picture": "Picture",
       "date": "Data",
-      "mainPicture": "Główne zdjęcie"
+      "mainPicture": "Główne zdjęcie",
+      "pictures": "Zdjęcia"
     }
   }
 }
