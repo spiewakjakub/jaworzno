@@ -1,0 +1,25 @@
+{
+  "jaworznoApp": {
+    "slider": {
+      "home": {
+        "title": "Slider",
+        "createLabel": "Dodaj Slider",
+        "createOrEditLabel": "Dodaj lub edytuj: Slider",
+        "notFound": "No Sliders found"
+      },
+      "created": "Utworzono nowy obiekt typu Slider z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Slider z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Slider z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Slider {{ id }}?"
+      },
+      "detail": {
+        "title": "Slider"
+      },
+      "picture": "Picture",
+      "link": "Link",
+      "title": "Title",
+      "description": "Description"
+    }
+  }
+}
