@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Slider } from 'app/shared/model/slider.model';
+import { SliderService } from 'app/entities/slider/slider.service';
 
 @Component({
   selector: 'jhi-carousel',
@@ -6,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carousel.component.scss']
 })
 export class CarouselComponent implements OnInit {
-  images = [944, 1011, 984].map(n => `https://picsum.photos/id/${n}/1444/500`);
+  sliders?: Slider[];
 
-  constructor() {}
+  constructor(private sliderService: SliderService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.sliderService.query().subscribe(sliders => {
+      this.sliders = sliders.body as Slider[];
+    });
+  }
 }
