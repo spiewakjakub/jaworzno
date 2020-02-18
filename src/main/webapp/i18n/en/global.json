@@ -14,6 +14,7 @@
         "picture": "Picture",
         "album": "Album",
         "sponsor": "Sponsor",
+        "slider": "Slider",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
