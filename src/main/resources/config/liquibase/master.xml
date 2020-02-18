@@ -21,6 +21,7 @@
     <include file="config/liquibase/changelog/20200207172000_added_entity_Picture.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200207172100_added_entity_Album.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200207172200_added_entity_Sponsor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200218113252_added_entity_Slider.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20200207172000_added_entity_constraints_Picture.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
