@@ -64,7 +64,7 @@ export class AlbumPicturesComponent implements OnInit {
     modalRef.componentInstance.picture = this.pictures[index];
     this.currentIndex = index;
 
-    modalRef.componentInstance.pictureClick$.subscribe(btn => {
+    modalRef.componentInstance.pictureClick$.subscribe((btn: 'PREV' | 'NEXT') => {
       if (btn === 'NEXT') {
         this.currentIndex++;
       } else {
