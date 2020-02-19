@@ -1,16 +1,16 @@
 <div class="row item-container">
-    <div class="col-2 item-date text-light">
-        <div class="item-date-day text-center">
-            {{data.date.date()}}
-        </div>
-        <div class="item-date-month bg-primary text-center">
-            {{data.date.month() + 1}}
-        </div>
+  <div class="col-2 item-date text-light">
+    <div class="item-date-day text-center">
+      {{ data.date.date() }}
     </div>
-    <div class="col-10">
-        <div class="ml-2 d-flex align-items-center text-center">
-            {{data.name}}
-        </div>
+    <div class="item-date-month text-center">
+      {{ data.date.month() + 1 }}
     </div>
+  </div>
+  <div class="col-10">
+    <div class="ml-2 d-flex align-items-center text-center">
+      {{ data.name }}
+    </div>
+  </div>
 </div>
-<hr class="divider"/>
+<hr class="divider" />

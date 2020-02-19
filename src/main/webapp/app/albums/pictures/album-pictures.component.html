@@ -1,31 +1,31 @@
 <div class="container my-3">
-    <div class="row">
-        <div class="col-12">
-            <div class="d-flex">
-                <div *ngIf="!albumTitle"><h1>Album</h1></div>
-                <div *ngIf="albumTitle"><h1>{{albumTitle}}</h1></div>
-            </div>
-            <span class="page-title-line"></span>
-        </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="d-flex">
+        <div *ngIf="!albumTitle"><h1>Album</h1></div>
+        <div *ngIf="albumTitle"
+          ><h1>{{ albumTitle }}</h1></div
+        >
+      </div>
+      <span class="page-title-line"></span>
     </div>
+  </div>
 
-    <div class="row d-flex">
-        <div *ngFor="let picture of pictures; let index = index" class="col-3">
-            <jhi-preview-card
-                (click)="showModal(index)"
-                [picture]="picture.data">
-            </jhi-preview-card>
-        </div>
+  <div class="row d-flex">
+    <div *ngFor="let picture of pictures; let index = index" class="col-3">
+      <jhi-preview-card (click)="showModal(index)" [picture]="picture.data"> </jhi-preview-card>
     </div>
+  </div>
 
-    <div *ngIf="totalPages > 1"
-         class="row d-flex justify-content-center m-3">
-        <ngb-pagination (pageChange)="loadPage($event)"
-                        [(page)]="page"
-                        [boundaryLinks]="true"
-                        [collectionSize]="totalElements"
-                        [pageSize]="size"
-                        [rotate]="true">
-        </ngb-pagination>
-    </div>
+  <div *ngIf="totalPages > 1" class="row d-flex justify-content-center m-3">
+    <ngb-pagination
+      (pageChange)="loadPage($event)"
+      [(page)]="page"
+      [boundaryLinks]="true"
+      [collectionSize]="totalElements"
+      [pageSize]="size"
+      [rotate]="true"
+    >
+    </ngb-pagination>
+  </div>
 </div>

@@ -1,7 +1,15 @@
+//@import "src/main/webapp/content/scss/global";
 footer {
-  font-size: 20px;
+  margin-top: auto;
+}
+
+a {
+  font-weight: normal;
 }
 
 .main-logo {
   max-width: 256px;
+  &:hover {
+    cursor: pointer;
+  }
 }

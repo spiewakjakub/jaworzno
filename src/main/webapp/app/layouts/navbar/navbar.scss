@@ -1,11 +1,12 @@
 @import 'src/main/webapp/content/scss/global';
+@import '~bootstrap/scss/mixins/gradients';
 
 .navbar {
+  min-height: 64px;
   padding: 0.2rem 1rem;
   display: flex;
   justify-content: space-between;
-  background: $primary;
-  //background: linear-gradient(0, $primary, darken($primary, 24));
+  @include gradient-bg($primary);
 
   ul.navbar-nav {
     .nav-item {

@@ -5,8 +5,9 @@ import { DEBUG_INFO_ENABLED } from 'app/app.constants';
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
 import { errorRoute } from './layouts/error/error.route';
 import { navbarRoute } from './layouts/navbar/navbar.route';
+import { footerRoute } from 'app/layouts/footer/footer.route';
 
-const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
+const LAYOUT_ROUTES = [navbarRoute, ...footerRoute, ...errorRoute];
 
 @NgModule({
   imports: [

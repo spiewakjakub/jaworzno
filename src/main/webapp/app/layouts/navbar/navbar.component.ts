@@ -20,6 +20,7 @@ export class NavbarComponent implements OnInit {
   languages = LANGUAGES;
   swaggerEnabled?: boolean;
   version: string;
+  isMenuCollapsed = true;
 
   constructor(
     private loginService: LoginService,
@@ -60,5 +61,9 @@ export class NavbarComponent implements OnInit {
 
   getImageUrl(): string {
     return this.isAuthenticated() ? this.accountService.getImageUrl() : '';
+  }
+
+  toggleCollapsedFlag(): void {
+    this.isMenuCollapsed = !this.isMenuCollapsed;
   }
 }
