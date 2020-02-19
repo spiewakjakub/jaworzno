@@ -22,9 +22,9 @@
   text-transform: uppercase;
   padding: 15px 20px;
   background-color: transparent;
-  border: 1px solid rgba(81, 81, 81, 0.2);
+  border: 1px solid $dark;
 }
 
 .all-button:hover {
-  background-color: rgba(81, 81, 81, 0.2);
+  background-color: $dark;
 }

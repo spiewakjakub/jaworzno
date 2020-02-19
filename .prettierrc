@@ -1,12 +1,13 @@
-# Prettier configuration
+{
+  "printWidth": 140,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
 
-printWidth: 140
-singleQuote: true
-tabWidth: 2
-useTabs: false
+  "htmlWhitespaceSensitivity": "strict",
 
-# js and ts rules:
-arrowParens: avoid
+  "arrowParens": "avoid",
 
-# jsx and tsx rules:
-jsxBracketSameLine: false
+  "jsxBracketSameLine": false
+}

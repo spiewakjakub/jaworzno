@@ -21,6 +21,9 @@ import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 
 import './vendor';
+import { FaqComponent } from './faq/faq.component';
+import { MainRegulationsComponent } from './main-regulations/main-regulations.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 
 @NgModule({
   imports: [
@@ -45,7 +48,10 @@ import './vendor';
     PageRibbonComponent,
     ActiveMenuDirective,
     FooterComponent,
-    LogoBarComponent
+    LogoBarComponent,
+    FaqComponent,
+    MainRegulationsComponent,
+    PrivacyPolicyComponent
   ],
   bootstrap: [MainComponent]
 })

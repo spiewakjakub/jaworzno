@@ -1,6 +1,8 @@
 @import 'bootstrap-variables';
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Nunito|Ubuntu&display=swap');
 
 /* ==============================================================
 Bootstrap tweaks
@@ -12,17 +14,16 @@ h2,
 h3,
 h4 {
   font-weight: 300;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: 'ubuntu', sans-serif;
 }
 
 /* Increase contrast of links to get 100% on Lighthouse Accessability Audit. Override this color if you want to change the link color, or use a Bootswatch theme */
 a {
-  color: #000000;
+  color: inherit;
   font-weight: bold;
 }
 
 a:hover {
-  color: #000000;
   text-decoration: none;
 }
 
@@ -102,10 +103,6 @@ Generic styles
 .readonly {
   background-color: #eee;
   opacity: 1;
-}
-
-.footer {
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .hand,

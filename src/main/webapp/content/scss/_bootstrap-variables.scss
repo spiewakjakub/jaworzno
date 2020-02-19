@@ -8,17 +8,24 @@
 // Colors:
 // Grayscale and brand colors for use across Bootstrap.
 
-$primary: #2738cf;
-$success: #28a745;
-$info: #17a2b8;
-$warning: #ffc107;
-$danger: #dc3545;
+$primary: #07689f;
+$secondary: #c9d6df;
+$success: #11d3bc;
+$danger: #f67280;
+$info: #a2d5f2;
+$warning: #ff7e67;
+$light: #fafafa;
+$dark: #4e4e4e;
+$enable-gradients: true;
+$spacer: 1.2rem;
+$border-width: 1px;
+$btn-border-radius: 0;
 
 // Options:
 // Quickly modify global styling by enabling or disabling optional features.
 $enable-rounded: true;
 $enable-shadows: false;
-$enable-gradients: false;
+//$enable-gradients: false;
 $enable-transitions: true;
 $enable-hover-media-query: false;
 $enable-grid-classes: true;

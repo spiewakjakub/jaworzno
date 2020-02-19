@@ -2,7 +2,7 @@
   "jaworznoApp": {
     "news": {
       "home": {
-        "title": "News",
+        "title": "Aktualności",
         "createLabel": "Dodaj News",
         "createOrEditLabel": "Dodaj lub edytuj: News",
         "notFound": "No News found"

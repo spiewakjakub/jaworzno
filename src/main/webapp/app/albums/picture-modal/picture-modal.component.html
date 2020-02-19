@@ -1,10 +1,10 @@
 <div *ngIf="picture" class="my-auto mx-auto">
-    <img class="w-100" src="data:image/jpg;base64,{{picture.data}}" alt="picture">
+  <img class="w-100" src="data:image/jpg;base64,{{ picture.data }}" alt="picture" />
 
-    <div class="my-auto carousel-control-prev" (click)="emitPicture('PREV')">
-        <fa-icon class="display-4" icon="angle-left"></fa-icon>
-    </div>
-    <div class="my-auto carousel-control-next" (click)="emitPicture('NEXT')">
-        <fa-icon class="display-4" icon="angle-right"></fa-icon>
-    </div>
+  <div class="my-auto carousel-control-prev" (click)="emitPicture('PREV')">
+    <fa-icon class="display-4" icon="angle-left"></fa-icon>
+  </div>
+  <div class="my-auto carousel-control-next" (click)="emitPicture('NEXT')">
+    <fa-icon class="display-4" icon="angle-right"></fa-icon>
+  </div>
 </div>
