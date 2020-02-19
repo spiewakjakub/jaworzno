@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
-import { Resolve, ActivatedRouteSnapshot, Routes, Router } from '@angular/router';
-import { Observable, of, EMPTY } from 'rxjs';
+import { ActivatedRouteSnapshot, Resolve, Router, Routes } from '@angular/router';
+import { EMPTY, Observable, of } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
 
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
-import { IAlbum, Album } from 'app/shared/model/album.model';
+import { Album, IAlbum } from 'app/shared/model/album.model';
 import { AlbumService } from './album.service';
 import { AlbumComponent } from './album.component';
 import { AlbumDetailComponent } from './album-detail.component';
@@ -21,6 +21,8 @@ export class AlbumResolve implements Resolve<IAlbum> {
       return this.service.find(id).pipe(
         flatMap((album: HttpResponse<Album>) => {
           if (album.body) {
+            // eslint-disable-next-line no-console
+            console.log(album);
             return of(album.body);
           } else {
             this.router.navigate(['404']);

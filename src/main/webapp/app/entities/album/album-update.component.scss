@@ -1,0 +1,22 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+.picture-container {
+  position: relative;
+}
+
+.picture-container img {
+  display: block;
+}
+
+.picture-container fa-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  z-index: 900;
+}
+
+.picture-container fa-icon:hover {
+  color: darkred;
+}

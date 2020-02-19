@@ -23,9 +23,19 @@
                            *ngIf="album.mainPicture">
                             <img [src]="'data:' + album.mainPictureContentType + ';base64,' + album.mainPicture"
                                  alt="album main picture"
-                                 style="max-height: 30px;"/>
+                                 style="max-height: 100px;"/>
                         </a>
                         {{ album.mainPictureContentType }}, {{ byteSize(album.mainPicture) }}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jaworznoApp.album.pictures">Pictures</span></dt>
+                <dd>
+                    <div *ngFor="let picture of album.pictures" class="d-inline-flex mr-1">
+                        <a (click)="openFile(picture.dataContentType, picture.data)">
+                            <img [src]="'data:' + picture.dataContentType + ';base64,' + picture.data"
+                                 alt="album picture"
+                                 style="max-height: 100px;"/>
+                        </a>
                     </div>
                 </dd>
             </dl>
