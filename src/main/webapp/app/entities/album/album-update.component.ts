@@ -11,7 +11,8 @@ import * as moment from 'moment';
 import { JhiDataUtils, JhiEventManager, JhiEventWithContent, JhiFileLoadError } from 'ng-jhipster';
 import { Observable } from 'rxjs';
 import { AlbumService } from './album.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { PicturePreviewComponent } from 'app/entities/album/picture-preview/picture-preview.component';
 
 @Component({
   selector: 'jhi-album-update',
@@ -20,7 +21,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AlbumUpdateComponent implements OnInit {
   isSaving = false;
-
   editForm = this.fb.group({
     id: [],
     title: [],
@@ -131,8 +131,6 @@ export class AlbumUpdateComponent implements OnInit {
 
   onPictureDeleteClick(i: number): void {
     this.pictures.removeAt(i);
-    // eslint-disable-next-line no-console
-    console.log(this.editForm.value);
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IAlbum>>): void {
@@ -161,5 +159,12 @@ export class AlbumUpdateComponent implements OnInit {
       mainPictureContentType: this.editForm.get(['mainPictureContentType'])!.value,
       pictures: this.editForm.get(['pictures'])!.value
     };
+  }
+
+  openImagePreview(picture: IPicture): void {
+    const modalRef = this.modalService.open(PicturePreviewComponent, { centered: true });
+    const modalInstance: PicturePreviewComponent = modalRef.componentInstance;
+    modalInstance.modalRef = modalRef;
+    modalInstance.picture = picture;
   }
 }

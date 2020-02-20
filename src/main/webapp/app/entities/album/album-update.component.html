@@ -90,18 +90,10 @@
                 <img
                   [src]="'data:' + picture.value.dataContentType + ';base64,' + picture.value.data"
                   alt="album picture"
-                  style="max-height: 100px;"
-                  usemap="#map"
+                  class="single-picture-element"
+                  (click)="openImagePreview(picture.value)"
                 />
                 <a>
-                  <map name="map">
-                    <area
-                      (click)="openFile(picture.value.dataContentType, picture.value.data)"
-                      alt="clickable"
-                      coords="0, 25%, 100%, 100%"
-                      shape="rect"
-                    />
-                  </map>
                   <fa-icon (click)="onPictureDeleteClick(i)" class="fa-lg m-1" icon="times"> </fa-icon>
                 </a>
               </div>
