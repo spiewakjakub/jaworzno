@@ -11,7 +11,7 @@ import * as moment from 'moment';
 import { JhiDataUtils, JhiEventManager, JhiEventWithContent, JhiFileLoadError } from 'ng-jhipster';
 import { Observable } from 'rxjs';
 import { AlbumService } from './album.service';
-import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PicturePreviewComponent } from 'app/entities/album/picture-preview/picture-preview.component';
 
 @Component({
