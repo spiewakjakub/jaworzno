@@ -37,7 +37,7 @@ public class Album implements Serializable {
     @Column(name = "main_picture_content_type", nullable = false)
     private String mainPictureContentType;
 
-    @OneToMany(mappedBy = "album", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "album", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Picture> pictures = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -53,13 +53,13 @@ public class Album implements Serializable {
         return title;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public Album title(String title) {
         this.title = title;
         return this;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public Instant getDate() {
@@ -105,6 +105,10 @@ public class Album implements Serializable {
         return pictures;
     }
 
+    public void setPictures(Set<Picture> pictures) {
+        this.pictures = pictures;
+    }
+
     public Album pictures(Set<Picture> pictures) {
         this.pictures = pictures;
         return this;
@@ -120,10 +124,6 @@ public class Album implements Serializable {
         this.pictures.remove(picture);
         picture.setAlbum(null);
         return this;
-    }
-
-    public void setPictures(Set<Picture> pictures) {
-        this.pictures = pictures;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

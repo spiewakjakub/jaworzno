@@ -24,14 +24,11 @@ import java.util.Optional;
 @RequestMapping("/api")
 public class AlbumResource {
 
-    private final Logger log = LoggerFactory.getLogger(AlbumResource.class);
-
     private static final String ENTITY_NAME = "album";
-
+    private final Logger log = LoggerFactory.getLogger(AlbumResource.class);
+    private final AlbumService albumService;
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
-
-    private final AlbumService albumService;
 
     public AlbumResource(AlbumService albumService) {
         this.albumService = albumService;
