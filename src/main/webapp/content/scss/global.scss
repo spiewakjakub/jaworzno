@@ -1,6 +1,7 @@
 @import 'bootstrap-variables';
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins/gradients';
 @import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Nunito|Ubuntu&display=swap');
 
@@ -201,12 +202,10 @@ ui bootstrap tweaks
 
 /* jhipster-needle-scss-add-main JHipster will add new css style */
 
-img.active-img {
-  &:hover {
-    cursor: pointer;
-    filter: brightness(70%);
-    box-shadow: 0 0 20px 5px $dark;
-  }
+img.active-img:hover {
+  cursor: pointer;
+  filter: brightness(115%);
+  box-shadow: 0 0 20px 5px $dark;
 }
 
 .container-fluid {
@@ -228,4 +227,8 @@ img.active-img {
   background-color: $primary;
   position: relative;
   top: 1px;
+}
+
+.bg-gradient-primary {
+  @include gradient-bg($primary);
 }
