@@ -4,6 +4,9 @@
             <h1 *ngIf="titleTranslate" [jhiTranslate]="titleTranslate!">
                 <ng-content></ng-content>
             </h1>
+            <h1 *ngIf="!titleTranslate">
+                <ng-content></ng-content>
+            </h1>
             <button *ngIf="router" class="all-button ml-auto" [routerLink]="router" jhiTranslate="main.viewAll">View
                 all
             </button>
