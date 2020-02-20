@@ -232,3 +232,7 @@ img.active-img:hover {
 .bg-gradient-primary {
   @include gradient-bg($primary);
 }
+
+strong {
+  font-weight: 900;
+}
