@@ -60,16 +60,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .disable()
             .addFilterBefore(corsFilter, UsernamePasswordAuthenticationFilter.class)
             .exceptionHandling()
-                .authenticationEntryPoint(problemSupport)
-                .accessDeniedHandler(problemSupport)
-        .and()
+            .authenticationEntryPoint(problemSupport)
+            .accessDeniedHandler(problemSupport)
+            .and()
             .headers()
-            .contentSecurityPolicy("default-src 'self'; frame-src 'self' https://www.youtube.com data:; script-src 'self' https://fonts.googleapis.com 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:")
-        .and()
+            .contentSecurityPolicy(
+                "default-src 'self';" +
+                    " frame-src 'self' https://www.youtube.com data:;" +
+                    " script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.googleapis.com;" +
+                    " style-src 'self' https://fonts.googleapis.com 'unsafe-inline';" +
+                    " img-src 'self' data:;" +
+                    " font-src https://fonts.gstatic.com 'self' data:")
+            .and()
             .referrerPolicy(ReferrerPolicyHeaderWriter.ReferrerPolicy.STRICT_ORIGIN_WHEN_CROSS_ORIGIN)
-        .and()
+            .and()
             .featurePolicy("geolocation 'none'; midi 'none'; sync-xhr 'none'; microphone 'none'; camera 'none'; magnetometer 'none'; gyroscope 'none'; speaker 'none'; fullscreen 'self'; payment 'none'")
-        .and()
+            .and()
             .frameOptions()
             .deny()
             .and()
@@ -87,9 +93,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/management/info").permitAll()
             .antMatchers("/management/prometheus").permitAll()
             .antMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN)
-        .and()
+            .and()
             .httpBasic()
-        .and()
+            .and()
             .apply(securityConfigurerAdapter());
         // @formatter:on
     }
