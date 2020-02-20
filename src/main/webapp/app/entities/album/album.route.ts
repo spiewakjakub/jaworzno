@@ -21,8 +21,6 @@ export class AlbumResolve implements Resolve<IAlbum> {
       return this.service.find(id).pipe(
         flatMap((album: HttpResponse<Album>) => {
           if (album.body) {
-            // eslint-disable-next-line no-console
-            console.log(album);
             return of(album.body);
           } else {
             this.router.navigate(['404']);
