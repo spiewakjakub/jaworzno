@@ -67,11 +67,16 @@
                 </div>
                 <div *ngFor="let picture of editForm.get('pictures').value"
                      class="d-inline-flex mr-1">
-                    <div (click)="openFile(picture.dataContentType, picture.data)" class="picture-container">
+                    <div class="picture-container">
+                        <img [src]="'data:' + picture.dataContentType + ';base64,' + picture.data"
+                             alt="album picture"
+                             style="max-height: 100px;"
+                             usemap="#map">
                         <a>
-                            <img [src]="'data:' + picture.dataContentType + ';base64,' + picture.data"
-                                 alt="album picture"
-                                 style="max-height: 100px;">
+                            <map name="map">
+                                <area (click)="openFile(picture.dataContentType, picture.data)" alt="clickable"
+                                      coords="0, 20%, 100%, 100%" shape="rect">
+                            </map>
                             <fa-icon (click)="onPictureDeleteClick()" class="fa-lg m-1" icon="times"></fa-icon>
                         </a>
                     </div>
