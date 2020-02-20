@@ -130,11 +130,9 @@ export class AlbumUpdateComponent implements OnInit {
   }
 
   onPictureDeleteClick(i: number): void {
+    this.pictures.removeAt(i);
     // eslint-disable-next-line no-console
-    console.log(this.pictures.controls);
-    this.pictures.controls.splice(i, 3);
-    // eslint-disable-next-line no-console
-    console.log(this.pictures.value);
+    console.log(this.editForm.value);
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IAlbum>>): void {
@@ -164,10 +162,4 @@ export class AlbumUpdateComponent implements OnInit {
       pictures: this.editForm.get(['pictures'])!.value
     };
   }
-
-  // onPictureDeleteClick(picture: IPicture): void {
-  //     const modalRef = this.modalService.open(PictureDeleteDialogComponent, {size: 'lg', backdrop: 'static'});
-  //     modalRef.componentInstance.picture = picture;
-  //     modalRef.result.then()
-  // }
 }

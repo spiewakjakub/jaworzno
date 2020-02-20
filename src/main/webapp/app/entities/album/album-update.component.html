@@ -60,41 +60,49 @@
             </div>
 
             <div class="form-group">
-                <div>
-                    <label class="form-control-label"
-                           for="field_pictures"
-                           jhiTranslate="jaworznoApp.album.pictures">Pictures</label>
-                </div>
-                <div *ngFor="let picture of editForm.get('pictures').value; let i = index"
-                     class="d-inline-flex mr-1">
-                    <div class="picture-container">
-                        <img [src]="'data:' + picture.dataContentType + ';base64,' + picture.data"
-                             alt="album picture"
-                             style="max-height: 100px;"
-                             usemap="#map">
-                        <a>
-                            <map name="map">
-                                <area (click)="openFile(picture.dataContentType, picture.data)" alt="clickable"
-                                      coords="0, 25%, 100%, 100%" shape="rect">
-                            </map>
-                            <fa-icon (click)="onPictureDeleteClick(i)" class="fa-lg m-1" icon="times"></fa-icon>
-                        </a>
+                <div formArrayName="pictures">
+                    <div>
+                        <label class="form-control-label"
+                               for="field_pictures"
+                               jhiTranslate="jaworznoApp.album.pictures">Pictures</label>
                     </div>
+                    <div *ngFor="let picture of pictures.controls; let i = index"
+                         class="d-inline-flex mr-1">
+                        <div [formGroupName]="i.toString()" class="xdd">
+                            <div class="picture-container">
+                                <img [src]="'data:' + picture.value.dataContentType + ';base64,' + picture.value.data"
+                                     alt="album picture"
+                                     style="max-height: 100px;"
+                                     usemap="#map">
+                                <a>
+                                    <map name="map">
+                                        <area (click)="openFile(picture.value.dataContentType, picture.value.data)"
+                                              alt="clickable"
+                                              coords="0, 25%, 100%, 100%"
+                                              shape="rect">
+                                    </map>
+                                    <fa-icon (click)="onPictureDeleteClick(i)"
+                                             class="fa-lg m-1"
+                                             icon="times">
+                                    </fa-icon>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <input (change)="addAlbumPictures($event)"
+                           accept="image/*"
+                           id="file_pictures"
+                           jhiTranslate="entity.action.addimage"
+                           multiple
+                           type="file"/>
+
+                    <input class="form-control"
+                           id="field_pictures"
+                           name="picture"
+                           type="hidden"/>
                 </div>
-
-
-                <input (change)="addAlbumPictures($event)"
-                       accept="image/*"
-                       id="file_pictures"
-                       jhiTranslate="entity.action.addimage"
-                       multiple
-                       type="file"/>
-
-                <input class="form-control"
-                       formControlName="pictures"
-                       id="field_pictures"
-                       name="picture"
-                       type="hidden"/>
             </div>
 
             <div>
