@@ -21,10 +21,6 @@ import { RouterModule } from '@angular/router';
         loadChildren: () => import('./video/video.module').then(m => m.JaworznoVideoModule)
       },
       {
-        path: 'admin/picture',
-        loadChildren: () => import('./picture/picture.module').then(m => m.JaworznoPictureModule)
-      },
-      {
         path: 'admin/album',
         loadChildren: () => import('./album/album.module').then(m => m.JaworznoAlbumModule)
       },

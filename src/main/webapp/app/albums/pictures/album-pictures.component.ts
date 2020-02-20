@@ -4,7 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AlbumTitleService } from 'app/albums/album-title.service';
 import { PictureModalComponent } from 'app/albums/picture-modal/picture-modal.component';
 import { AlbumService } from 'app/entities/album/album.service';
-import { PictureService } from 'app/entities/picture/picture.service';
+import { PictureService } from 'app/entities/album/picture.service';
 import { IPicture } from 'app/shared/model/picture.model';
 
 @Component({

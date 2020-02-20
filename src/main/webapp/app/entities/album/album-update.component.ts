@@ -11,6 +11,7 @@ import * as moment from 'moment';
 import { JhiDataUtils, JhiEventManager, JhiEventWithContent, JhiFileLoadError } from 'ng-jhipster';
 import { Observable } from 'rxjs';
 import { AlbumService } from './album.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'jhi-album-update',
@@ -35,7 +36,8 @@ export class AlbumUpdateComponent implements OnInit {
     protected albumService: AlbumService,
     protected elementRef: ElementRef,
     protected activatedRoute: ActivatedRoute,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    protected modalService: NgbModal
   ) {}
 
   get pictures(): FormArray {
@@ -91,48 +93,19 @@ export class AlbumUpdateComponent implements OnInit {
     }
   }
 
-  private createFromForm(): IAlbum {
-    return {
-      ...new Album(),
-      id: this.editForm.get(['id'])!.value,
-      title: this.editForm.get(['title'])!.value,
-      date: this.editForm.get(['date'])!.value ? moment(this.editForm.get(['date'])!.value, DATE_TIME_FORMAT) : undefined,
-      mainPicture: this.editForm.get(['mainPicture'])!.value,
-      mainPictureContentType: this.editForm.get(['mainPictureContentType'])!.value,
-      pictures: this.editForm.get(['pictures'])!.value
-    };
-  }
-
   updateForm(album: IAlbum): void {
     this.editForm.patchValue({
       id: album.id,
       title: album.title,
       date: album.date ? album.date.format(DATE_TIME_FORMAT) : null,
       mainPicture: album.mainPicture,
-      mainPictureContentType: album.mainPictureContentType,
-      pictures: album.pictures
+      mainPictureContentType: album.mainPictureContentType
     });
     if (album.pictures) {
       for (let i = 0; i < album.pictures.length; i++) {
         this.pictures.push(new FormControl(album.pictures[i]));
       }
     }
-  }
-
-  protected subscribeToSaveResponse(result: Observable<HttpResponse<IAlbum>>): void {
-    result.subscribe(
-      () => this.onSaveSuccess(),
-      () => this.onSaveError()
-    );
-  }
-
-  protected onSaveSuccess(): void {
-    this.isSaving = false;
-    this.previousState();
-  }
-
-  protected onSaveError(): void {
-    this.isSaving = false;
   }
 
   addAlbumPictures($event: any): void {
@@ -156,8 +129,45 @@ export class AlbumUpdateComponent implements OnInit {
     }
   }
 
-  onPictureDeleteClick(): void {
+  onPictureDeleteClick(i: number): void {
     // eslint-disable-next-line no-console
-    console.log('clicked');
+    console.log(this.pictures.controls);
+    this.pictures.controls.splice(i, 3);
+    // eslint-disable-next-line no-console
+    console.log(this.pictures.value);
   }
+
+  protected subscribeToSaveResponse(result: Observable<HttpResponse<IAlbum>>): void {
+    result.subscribe(
+      () => this.onSaveSuccess(),
+      () => this.onSaveError()
+    );
+  }
+
+  protected onSaveSuccess(): void {
+    this.isSaving = false;
+    this.previousState();
+  }
+
+  protected onSaveError(): void {
+    this.isSaving = false;
+  }
+
+  private createFromForm(): IAlbum {
+    return {
+      ...new Album(),
+      id: this.editForm.get(['id'])!.value,
+      title: this.editForm.get(['title'])!.value,
+      date: this.editForm.get(['date'])!.value ? moment(this.editForm.get(['date'])!.value, DATE_TIME_FORMAT) : undefined,
+      mainPicture: this.editForm.get(['mainPicture'])!.value,
+      mainPictureContentType: this.editForm.get(['mainPictureContentType'])!.value,
+      pictures: this.editForm.get(['pictures'])!.value
+    };
+  }
+
+  // onPictureDeleteClick(picture: IPicture): void {
+  //     const modalRef = this.modalService.open(PictureDeleteDialogComponent, {size: 'lg', backdrop: 'static'});
+  //     modalRef.componentInstance.picture = picture;
+  //     modalRef.result.then()
+  // }
 }

@@ -17,6 +17,10 @@ export class PictureDeleteDialogComponent {
     this.activeModal.dismiss();
   }
 
+  confirm(): void {
+    this.activeModal.close('success');
+  }
+
   confirmDelete(id: number): void {
     this.pictureService.delete(id).subscribe(() => {
       this.eventManager.broadcast('pictureListModification');
