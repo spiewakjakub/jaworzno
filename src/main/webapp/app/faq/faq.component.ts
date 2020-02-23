@@ -10,9 +10,11 @@ export class FaqComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get(SERVER_API_URL + 'api/db').subscribe(response => {
-      // eslint-disable-next-line no-console
-      console.log(response);
-    });
+    this.http
+      .get(SERVER_API_URL + 'api/util/db')
+      .subscribe(response => {
+        // eslint-disable-next-line no-console
+        console.log(response);
+      });
   }
 }
