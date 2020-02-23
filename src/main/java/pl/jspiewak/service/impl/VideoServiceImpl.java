@@ -1,5 +1,7 @@
 package pl.jspiewak.service.impl;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import pl.jspiewak.service.VideoService;
 import pl.jspiewak.domain.Video;
 import pl.jspiewak.repository.VideoRepository;
@@ -73,5 +75,10 @@ public class VideoServiceImpl implements VideoService {
     public void delete(Long id) {
         log.debug("Request to delete Video : {}", id);
         videoRepository.deleteById(id);
+    }
+
+    @Override
+    public Page<Video> findAll(Pageable pageable) {
+        return videoRepository.findAll(pageable);
     }
 }

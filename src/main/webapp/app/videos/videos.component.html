@@ -1,1 +1,28 @@
-<p>videos works!</p>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12 news-header">
+      <jhi-title titleTranslate="video.title">Video</jhi-title>
+    </div>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let video of videos" class="col-12 h-100 col-md-6 mt-4">
+      <jhi-video [src]="video.link"></jhi-video>
+    </div>
+  </div>
+
+  <div
+    *ngIf="totalPages > 1"
+    class="row d-flex justify-content-center m-3"
+  >
+    <ngb-pagination
+      (pageChange)="loadPage($event)"
+      [(page)]="page"
+      [boundaryLinks]="true"
+      [collectionSize]="totalElements"
+      [pageSize]="PAGE_SIZE"
+      [rotate]="true"
+    >
+    </ngb-pagination>
+  </div>
+</div>
