@@ -15,7 +15,10 @@ export class AlbumsComponent implements OnInit {
   totalPages = 0;
   private albums?: IAlbum[] | null;
 
-  constructor(private albumService: AlbumService, private albumTitleService: AlbumTitleService) {}
+  constructor(
+    private albumService: AlbumService,
+    private albumTitleService: AlbumTitleService
+  ) {}
 
   ngOnInit(): void {
     this.loadPage(1);
@@ -25,10 +28,11 @@ export class AlbumsComponent implements OnInit {
     this.page = $event - 1;
     this.albumService.getPage(this.page, this.size).subscribe(
       response => {
-        if (response.body) {
-          this.totalElements = response.body.length;
-          this.albums = response.body;
-          this.totalPages = Math.ceil(response.body.length / this.size);
+        const body = response.body;
+        if (body) {
+          this.totalElements = body.totalElements;
+          this.albums = body.content;
+          this.totalPages = body.totalPages;
         }
       },
       error => {
