@@ -117,4 +117,11 @@ public class AlbumResource {
         PageRequest pageable = PageRequest.of(Integer.parseInt(page), Integer.parseInt(size));
         return albumService.getAllWithFirstPicture(pageable);
     }
+
+    @GetMapping("/albums/newest")
+    public ResponseEntity<Album> getNewestAlbum() {
+        log.debug("REST request to get newest Albums");
+        return ResponseEntity.ok(
+            albumService.getNewest());
+    }
 }

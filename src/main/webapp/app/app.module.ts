@@ -24,6 +24,7 @@ import './vendor';
 import { FaqComponent } from './faq/faq.component';
 import { MainRegulationsComponent } from './main-regulations/main-regulations.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { CycleInfoComponent } from './cycle-info/cycle-info.component';
 
 @NgModule({
   imports: [
@@ -51,7 +52,8 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
     LogoBarComponent,
     FaqComponent,
     MainRegulationsComponent,
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent,
+    CycleInfoComponent
   ],
   bootstrap: [MainComponent]
 })

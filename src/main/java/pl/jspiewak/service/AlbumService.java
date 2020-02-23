@@ -45,4 +45,6 @@ public interface AlbumService {
     Page<Album> findAll(Pageable pageable);
 
     List<Album> getAllWithFirstPicture(Pageable pageable);
+
+    Album getNewest();
 }
