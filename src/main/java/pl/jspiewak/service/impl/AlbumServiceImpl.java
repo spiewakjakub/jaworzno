@@ -1,8 +1,5 @@
 package pl.jspiewak.service.impl;
 
-import pl.jspiewak.service.AlbumService;
-import pl.jspiewak.domain.Album;
-import pl.jspiewak.repository.AlbumRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -95,5 +92,10 @@ public class AlbumServiceImpl implements AlbumService {
             .filter(album -> !CollectionUtils.isEmpty(album.getPictures()))
             .peek(album -> album.setPictures(Set.of(album.getPictures().iterator().next())))
             .collect(Collectors.toList());
+    }
+
+    @Override
+    public Album getNewest() {
+        return albumRepository.findFirstByOrderByDateDesc();
     }
 }

@@ -13,10 +13,8 @@ export class SeeAlsoComponent implements OnInit {
   constructor(private albumService: AlbumService) {}
 
   ngOnInit(): void {
-    this.albumService.query().subscribe(album => {
-      if (album.body) {
-        this.album = album.body[0];
-      }
+    this.albumService.getNewest().subscribe(album => {
+      this.album = album;
     });
   }
 }

@@ -1,9 +1,8 @@
 package pl.jspiewak.repository;
 
-import pl.jspiewak.domain.Album;
-
-import org.springframework.data.jpa.repository.*;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import pl.jspiewak.domain.Album;
 
 /**
  * Spring Data  repository for the Album entity.
@@ -11,5 +10,5 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface AlbumRepository extends JpaRepository<Album, Long> {
-
+    Album findFirstByOrderByDateDesc();
 }

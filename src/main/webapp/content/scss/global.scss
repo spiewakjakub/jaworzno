@@ -36,7 +36,11 @@ a:not([href]):not([tabindex]):hover.dropdown-item {
 
 /* override .dropdown-item.active background-color on hover */
 .dropdown-item.active:hover {
-  background-color: mix($dropdown-link-hover-bg, $dropdown-link-active-bg, 50%);
+  background-color: mix(
+    $dropdown-link-hover-bg,
+    $dropdown-link-active-bg,
+    50%
+  );
 }
 
 .dropdown-item:hover {
@@ -230,7 +234,7 @@ img.active-img:hover {
 }
 
 .shadow-inset {
-  box-shadow: inset 0 64px 16px -64px $dark;
+  box-shadow: inset 64px 64px 16px -64px $dark;
 }
 
 strong {

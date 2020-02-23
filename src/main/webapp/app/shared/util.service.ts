@@ -12,6 +12,8 @@ export class UtilService {
   constructor(private http: HttpClient) {}
 
   getMainLogo(): Observable<string> {
-    return this.http.get<HttpResponse<string>>(this.resourceApi).pipe(map(response => response.body as string));
+    return this.http
+      .get<HttpResponse<string>>(this.resourceApi)
+      .pipe(map(response => response.body as string));
   }
 }

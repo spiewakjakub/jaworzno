@@ -19,11 +19,18 @@ public class UtilsResource {
 
     private final Logger log = LoggerFactory.getLogger(UtilsResource.class);
 
-    private final Resource resource = new ClassPathResource("images/main_logo.png");
+    private final Resource mainLogoResource = new ClassPathResource("images/main_logo.png");
+    private final Resource cycleInfoResource = new ClassPathResource("images/cycle_info.jpg");
 
     @GetMapping(value = "/logo", produces = MediaType.IMAGE_PNG_VALUE)
     public byte[] getMainLogo() throws IOException {
         log.debug("Request to get main logo");
-        return nullToEmpty(resource.getInputStream().readAllBytes());
+        return nullToEmpty(mainLogoResource.getInputStream().readAllBytes());
+    }
+
+    @GetMapping(value = "/cycle-info-image", produces = MediaType.IMAGE_PNG_VALUE)
+    public byte[] getCycleInfoImage() throws IOException {
+        log.debug("Request to get main logo");
+        return nullToEmpty(cycleInfoResource.getInputStream().readAllBytes());
     }
 }

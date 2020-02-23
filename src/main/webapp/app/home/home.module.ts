@@ -12,7 +12,15 @@ import { PostersComponent } from './posters/posters.component';
 import { SeeAlsoComponent } from './see-also/see-also.component';
 
 @NgModule({
-  imports: [JaworznoSharedModule, RouterModule.forChild([HOME_ROUTE])],
-  declarations: [HomeComponent, CarouselComponent, PlacesComponent, PlaceItemComponent, PostersComponent, PosterComponent, SeeAlsoComponent]
+  imports: [JaworznoSharedModule, RouterModule.forChild(HOME_ROUTE)],
+  declarations: [
+    HomeComponent,
+    CarouselComponent,
+    PlacesComponent,
+    PlaceItemComponent,
+    PostersComponent,
+    PosterComponent,
+    SeeAlsoComponent
+  ]
 })
 export class JaworznoHomeModule {}
