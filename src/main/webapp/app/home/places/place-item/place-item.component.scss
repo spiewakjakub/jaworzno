@@ -10,6 +10,15 @@ $radius: 8px;
 
 .item-container {
   margin: 8px 0;
+  border: white solid 1px;
+  padding: 5px;
+}
+
+.item-container:hover {
+  border: lightgray solid 1px;
+  border-radius: $radius;
+  background: whitesmoke;
+  box-shadow: 0 0 20px 5px $dark;
 }
 
 .item-date-day {
