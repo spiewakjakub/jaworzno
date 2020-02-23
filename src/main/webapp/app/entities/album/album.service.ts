@@ -10,6 +10,14 @@ import { map } from 'rxjs/operators';
 
 type EntityResponseType = HttpResponse<IAlbum>;
 type EntityArrayResponseType = HttpResponse<IAlbum[]>;
+type PagedType = {
+  content: IAlbum[];
+  size: number;
+  number: number;
+  totalElements: number;
+  totalPages: number;
+};
+type EntityPagedResponseType = HttpResponse<PagedType>;
 
 @Injectable({ providedIn: 'root' })
 export class AlbumService {
@@ -71,8 +79,11 @@ export class AlbumService {
     });
   }
 
-  getPage(page: number, size: number): Observable<HttpResponse<any>> {
-    return this.http.get<IAlbum[]>(
+  getPage(
+    page: number,
+    size: number
+  ): Observable<EntityPagedResponseType> {
+    return this.http.get<PagedType>(
       SERVER_API_URL + '/api/albums/page',
       {
         params: {
