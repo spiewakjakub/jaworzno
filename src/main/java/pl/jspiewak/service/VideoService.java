@@ -1,5 +1,7 @@
 package pl.jspiewak.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import pl.jspiewak.domain.Video;
 
 import java.util.List;
@@ -39,4 +41,7 @@ public interface VideoService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+
+    Page<Video> findAll(Pageable pageable);
 }

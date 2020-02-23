@@ -19,5 +19,8 @@
       "title": "Title",
       "link": "Link"
     }
+  },
+  "video": {
+    "title": "Wideo"
   }
 }
