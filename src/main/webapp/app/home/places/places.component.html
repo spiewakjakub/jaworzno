@@ -1,13 +1,13 @@
 <div class="row">
-  <div class="col">
-    <h2 jhiTranslate="places.title">Places</h2>
-  </div>
-</div>
-<hr class="divider" />
-<div class="row">
-  <div class="col">
-    <div *ngFor="let place of places">
-      <jhi-place-item [data]="place"></jhi-place-item>
+    <div class="col">
+        <jhi-title titleTranslate="places.title"></jhi-title>
     </div>
-  </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div *ngFor="let place of places">
+            <jhi-place-item [data]="place"></jhi-place-item>
+            <hr>
+        </div>
+    </div>
 </div>

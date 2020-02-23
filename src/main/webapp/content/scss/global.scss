@@ -235,8 +235,11 @@ img.active-img:hover {
 
 .shadow-inset {
   box-shadow: inset 64px 64px 16px -64px $dark;
+  background: whitesmoke;
 }
 
 strong {
   font-weight: 900;
 }
+
+//background: linear-gradient(135deg, $main-color, darken($main-color, 24)) no-repeat fixed;
